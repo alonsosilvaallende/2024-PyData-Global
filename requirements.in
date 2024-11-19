@@ -11,3 +11,4 @@ torch
 transformers
 outlines==0.1.4
 solara
+langchain-text-splitters
