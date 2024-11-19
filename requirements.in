@@ -9,5 +9,5 @@ numpy
 matplotlib
 torch
 transformers
-outlines
+outlines==0.1.4
 solara

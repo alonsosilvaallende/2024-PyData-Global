@@ -8,6 +8,8 @@ aiohttp==3.11.4
     #   fsspec
 aiosignal==1.3.1
     # via aiohttp
+airportsdata==20241001
+    # via outlines
 annotated-types==0.7.0
     # via pydantic
 anyio==4.6.2.post1
@@ -66,7 +68,7 @@ contourpy==1.3.1
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
-datasets==2.14.4
+datasets==3.1.0
     # via outlines
 debugpy==1.8.8
     # via ipykernel
@@ -74,7 +76,7 @@ decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-dill==0.3.7
+dill==0.3.8
     # via
     #   datasets
     #   multiprocess
@@ -86,6 +88,7 @@ fastjsonschema==2.20.0
     # via nbformat
 filelock==3.16.1
     # via
+    #   datasets
     #   huggingface-hub
     #   solara-server
     #   torch
@@ -99,7 +102,7 @@ frozenlist==1.5.0
     # via
     #   aiohttp
     #   aiosignal
-fsspec==2024.10.0
+fsspec==2024.9.0
     # via
     #   datasets
     #   huggingface-hub
@@ -127,7 +130,9 @@ idna==3.10
     #   requests
     #   yarl
 interegular==0.3.3
-    # via outlines
+    # via
+    #   outlines
+    #   outlines-core
 ipykernel==6.29.5
     # via
     #   jupyterlab
@@ -172,6 +177,7 @@ jsonschema==4.23.0
     #   jupyterlab-server
     #   nbformat
     #   outlines
+    #   outlines-core
 jsonschema-specifications==2024.10.1
     # via jsonschema
 jupyter-client==8.6.3
@@ -222,8 +228,6 @@ kiwisolver==1.4.7
     # via matplotlib
 lark==1.2.2
     # via outlines
-llvmlite==0.36.0
-    # via numba
 markdown==3.7
     # via
     #   pymdown-extensions
@@ -255,7 +259,7 @@ multidict==6.1.0
     # via
     #   aiohttp
     #   yarl
-multiprocess==0.70.15
+multiprocess==0.70.16
     # via datasets
 mypy-extensions==1.0.0
     # via black
@@ -278,15 +282,12 @@ networkx==3.4.2
     # via torch
 notebook-shim==0.2.4
     # via jupyterlab
-numba==0.53.1
-    # via outlines
-numpy==2.1.3
+numpy==1.26.4
     # via
     #   -r requirements.in
     #   contourpy
     #   datasets
     #   matplotlib
-    #   numba
     #   outlines
     #   pandas
     #   solara-ui
@@ -323,8 +324,10 @@ nvidia-nvjitlink-cu12==12.4.127
     #   torch
 nvidia-nvtx-cu12==12.4.127
     # via torch
-outlines==0.0.44
+outlines==0.1.4
     # via -r requirements.in
+outlines-core==0.1.17
+    # via outlines
 overrides==7.7.0
     # via jupyter-server
 packaging==24.2
@@ -375,8 +378,6 @@ ptyprocess==0.7.0
     #   terminado
 pure-eval==0.2.3
     # via stack-data
-pyairports==2.1.1
-    # via outlines
 pyarrow==18.0.0
     # via datasets
 pycountry==24.6.1
@@ -463,7 +464,6 @@ send2trash==1.8.3
 setuptools==75.5.0
     # via
     #   jupyterlab
-    #   numba
     #   torch
 six==1.16.0
     # via
@@ -499,7 +499,9 @@ tinycss2==1.4.0
 tokenizers==0.20.3
     # via transformers
 torch==2.5.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   outlines
 tornado==6.4.1
     # via
     #   ipykernel
@@ -537,6 +539,7 @@ types-python-dateutil==2.9.0.20241003
 typing-extensions==4.12.2
     # via
     #   huggingface-hub
+    #   outlines
     #   pydantic
     #   pydantic-core
     #   reacton
