@@ -1,0 +1,61 @@
+---
+title: Building Knowledge Graph-Based Agents with Structured Text Generation and Open-Weights Models
+author: 'Alonso Silva (twitter/X: @alonsosilva)'
+format:
+  revealjs:
+    theme: default
+    scrollable: true
+    toc: true
+    toc-depth: 1
+    slide-number: true
+jupyter:
+  jupytext:
+    formats: 'ipynb,qmd'
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Introduction
+
+# Knowledge Graph Construction
+
+```{python}
+#| echo: true
+with open('/home/asilva/quarto/2024-PyData-Global/assets/curie.txt', "r") as f:
+    curie_text = f.read()
+print(curie_text)
+```
+
+```{python}
+#| echo: true
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+text_splitter = RecursiveCharacterTextSplitter(
+    separators=[
+        "\n\n",
+        "\n",
+        ".",
+        ",",
+        " ",
+        "",
+    ],
+    # Set a really small chunk size, just to show.
+    chunk_size=100,
+    chunk_overlap=20,
+    length_function=len,
+    is_separator_regex=False,
+)
+```
+
+```{python}
+#| echo: true
+1+1
+```
+
