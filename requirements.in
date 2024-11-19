@@ -1,0 +1,13 @@
+jupyterlab
+jupyterlab_execute_time
+black
+isort
+ruff
+jupyterlab_code_formatter
+jupytext
+numpy
+matplotlib
+torch
+transformers
+outlines
+solara
