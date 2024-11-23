@@ -9,6 +9,7 @@ numpy
 matplotlib
 torch
 transformers
-outlines==0.1.4
+outlines==0.1.3
 solara
 langchain-text-splitters
+accelerate

@@ -33,21 +33,24 @@ with open('/home/asilva/quarto/2024-PyData-Global/assets/curie.txt', "r") as f:
 print(curie_text)
 ```
 
+## Chunking
+
 ```{python}
 #| echo: true
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 text_splitter = RecursiveCharacterTextSplitter(
-    separators=[
-        "\n\n",
-        "\n",
-        ".",
-        ",",
-        " ",
-        "",
-    ],
+    separators=["\n\n", "\n", "(?<=. )", " ", ""],
+    # separators=[
+    #     "\n\n",
+    #     "\n",
+    #     "(?<=\. )",
+    #     ",",
+    #     " ",
+    #     "",
+    # ],
     # Set a really small chunk size, just to show.
-    chunk_size=100,
+    chunk_size=200,
     chunk_overlap=20,
     length_function=len,
     is_separator_regex=False,
@@ -55,7 +58,155 @@ text_splitter = RecursiveCharacterTextSplitter(
 ```
 
 ```{python}
-#| echo: true
-1+1
+texts = text_splitter.split_text(curie_text)
+texts
+```
+
+```{python}
+from pydantic import BaseModel, Field
+from typing import Optional
+
+class Node(BaseModel):
+    """Node of the Knowledge Graph"""
+
+    id: int = Field(..., description="Unique identifier of the node")
+    label: str = Field(..., description="Label of the node")
+    property: Optional[str] = Field(..., description="Property of the node")
+
+
+class Edge(BaseModel):
+    """Edge of the Knowledge Graph"""
+
+    source: int = Field(..., description="Unique source of the edge")
+    target: int = Field(..., description="Unique target of the edge")
+    label: str = Field(..., description="Label of the edge")
+    property: Optional[str] = Field(..., description="Property of the edge")
+```
+
+```{python}
+from typing import List
+
+class KnowledgeGraph(BaseModel):
+    """Generated Knowledge Graph"""
+
+    nodes: List[Node] = Field(..., description="List of nodes of the knowledge graph")
+    edges: List[Edge] = Field(..., description="List of edges of the knowledge graph")
+
+json_schema = KnowledgeGraph.model_json_schema()
+```
+
+```{python}
+from outlines.fsm.json_schema import convert_json_schema_to_str
+from outlines.fsm.json_schema import build_regex_from_schema
+
+schema_str = convert_json_schema_to_str(json_schema=json_schema)
+regex_str = build_regex_from_schema(schema_str)
+```
+
+```{python}
+regex_str
+```
+
+```{python}
+import outlines
+import transformers
+
+tokenizer = transformers.AutoTokenizer.from_pretrained("/big_storage/llms/hf_models/Hermes-3-Llama-3_1-8B/")
+outlines_tokenizer = outlines.models.TransformerTokenizer(tokenizer)
+```
+
+```{python}
+def generate_hermes_prompt(user_prompt):
+    return (
+        "<|im_start|>system\n"
+        "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
+        f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
+        "<|im_start|>user\n"
+        + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
+        + "<|im_end|>"
+        + "\n<|im_start|>assistant\n"
+        "<schema>"
+    )
+print(generate_hermes_prompt("Alice loves Bob."))
+```
+
+```{python}
+prompt = generate_hermes_prompt(texts[0])
+print(prompt)
+```
+
+```{python}
+from transformers import pipeline
+
+pipe = pipeline(
+    "text-generation",
+    model="/big_storage/llms/hf_models/Hermes-3-Llama-3_1-8B/",
+    device_map="auto",
+    max_new_tokens=1000,
+    return_full_text=False,
+    temperature=0.01,
+)
+```
+
+```{python}
+outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+    regex_str,
+    outlines_tokenizer,
+)
+```
+
+```{python}
+output = pipe(prompt, 
+     logits_processor=transformers.LogitsProcessorList([outlines_logits_processor])
+    )
+```
+
+```{python}
+import json
+
+json_output = json.loads(output[0]['generated_text'])
+```
+
+```{python}
+json_output["nodes"]
+```
+
+```{python}
+json_output["edges"]
+```
+
+```{python}
+outputs = pipe(
+    [
+        generate_hermes_prompt(text)
+        for text in texts
+    ],
+    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+)
+```
+
+```{python}
+for output in outputs:
+    print(output[0]["generated_text"])
+```
+
+```{python}
+outputs[0][0]['generated_text']
+```
+
+```{python}
+texts[1]
+```
+
+```{python}
+outputs[1][0]['generated_text']
+```
+
+```{python}
+texts[2]
+```
+
+```{python}
+outputs[2][0]['generated_text']
 ```
 
