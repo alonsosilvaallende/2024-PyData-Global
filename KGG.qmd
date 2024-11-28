@@ -1,0 +1,416 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+with open('/home/asilva/quarto/2024-PyData-Global/assets/curie.txt', "r") as f:
+    curie_text = f.read()
+```
+
+```{python}
+texts = curie_text.split("\n\n") # chunking
+```
+
+```{python}
+from pydantic.v1 import BaseModel, Field
+from typing import Optional
+
+class Node(BaseModel):
+    """Node of the Knowledge Graph"""
+    id: int = Field(..., description="Unique identifier of the node")
+    type: str = Field(..., description="Type of the node")
+    label: str = Field(..., description="Label of the node")
+    property: Optional[str] = Field(..., description="Property of the node")
+
+
+class Edge(BaseModel):
+    """Edge of the Knowledge Graph"""
+    source: int = Field(..., description="Unique source of the edge")
+    target: int = Field(..., description="Unique target of the edge")
+    type: str = Field(..., description="Type of the edge")
+    label: str = Field(..., description="Label of the edge")
+    property: Optional[str] = Field(..., description="Property of the edge")
+```
+
+```{python}
+from typing import List
+
+class KnowledgeGraph(BaseModel):
+    """Generated Knowledge Graph"""
+    nodes: List[Node] = Field(..., description="List of nodes of the knowledge graph")
+    edges: List[Edge] = Field(..., description="List of edges of the knowledge graph")
+```
+
+```{python}
+json_schema = KnowledgeGraph.schema_json()
+```
+
+```{python}
+# json_schema = KnowledgeGraph.model_json_schema()
+```
+
+```{python}
+from outlines.fsm.json_schema import convert_json_schema_to_str
+from outlines.fsm.json_schema import build_regex_from_schema
+
+schema_str = convert_json_schema_to_str(json_schema=json_schema)
+regex_str = build_regex_from_schema(schema_str)
+```
+
+```{python}
+import llama_cpp
+
+llm = llama_cpp.Llama(
+    "/big_storage/llms/models/Hermes-3-Llama-3.1-8B.Q6_K.gguf",
+    tokenizer=llama_cpp.llama_tokenizer.LlamaHFTokenizer.from_pretrained(
+        "NousResearch/Hermes-3-Llama-3.1-8B"
+    ),
+    n_gpu_layers=-1,
+    flash_attn=True,
+    n_ctx=8192,
+    verbose=False
+)
+```
+
+```{python}
+import outlines
+import transformers
+
+outlines_tokenizer = outlines.models.TransformerTokenizer(
+    transformers.AutoTokenizer.from_pretrained("NousResearch/Hermes-3-Llama-3.1-8B")
+)
+```
+
+```{python}
+def generate_hermes_prompt(user_prompt):
+    return (
+        "<|im_start|>system\n"
+        "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
+        f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
+        "<|im_start|>user\n"
+        + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
+        + "<|im_end|>"
+        + "\n<|im_start|>assistant\n"
+        "<schema>"
+    )
+```
+
+```{python}
+len(texts)
+```
+
+```{python}
+outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+    regex_str,
+    outlines_tokenizer,
+)
+```
+
+```{python}
+output = llm.create_completion(
+    generate_hermes_prompt(texts[0]),
+    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+    max_tokens=1000
+)
+```
+
+```{python}
+print(output['choices'][0]['text'])
+```
+
+```{python}
+import json
+for node in json.loads(output['choices'][0]['text'])['nodes']:
+    print(node['type'])
+```
+
+```{python}
+nodes_type = []
+for text in texts:
+    outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+        regex_str,
+        outlines_tokenizer,
+    )
+    output = llm.create_completion(
+        generate_hermes_prompt(text),
+        logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+        max_tokens=1000
+    )
+    for edge in json.loads(output['choices'][0]['text'])['edges']:
+        nodes_type.append(edge)
+```
+
+```{python}
+texts[3]
+```
+
+```{python}
+nodes_type
+```
+
+```{python}
+person, award, location, discovery
+```
+
+```{python}
+DISCOVERED, AWARDED, RELATIONSHIP, WORKED_WITH, WORKED_AT
+```
+
+```{python}
+texts[3]
+```
+
+```{python}
+from enum import Enum
+from pydantic.v1 import BaseModel, Field
+
+class Node_Type(str, Enum):
+    """The type of node of the knowledge graph"""
+    PERSON = "PERSON"
+    AWARD = "AWARD"
+    LOCATION = "LOCATION"
+    DISCOVERY = "DISCOVERY"
+
+class Node(BaseModel):
+    """Node of the Knowledge Graph"""
+
+    id: int = Field(..., description="Unique identifier of the node")
+    node_type : Node_Type
+    label: str = Field(..., description="Label of the node")
+    property: Optional[str] = Field(..., description="Property of the node")
+```
+
+```{python}
+class Edge_Type(str, Enum):
+    """The type of edge of the knowledge graph"""
+    DISCOVERED = "DISCOVERED"
+    AWARDED = "AWARDED"
+    RELATIONSHIP = "RELATIONSHIP"
+    VISITED = "VISITED"
+
+
+class Edge(BaseModel):
+    """Edge of the Knowledge Graph"""
+
+    source: int = Field(..., description="Unique source of the edge")
+    target: int = Field(..., description="Unique target of the edge")
+    label: str = Field(..., description="Label of the edge")
+    edge_type: Edge_Type
+```
+
+```{python}
+from typing import List
+
+class KnowledgeGraph(BaseModel):
+    """Generated Knowledge Graph"""
+
+    nodes: List[Node] = Field(..., description="List of nodes of the knowledge graph")
+    edges: List[Edge] = Field(..., description="List of edges of the knowledge graph")
+```
+
+```{python}
+json_schema = KnowledgeGraph.schema_json()
+```
+
+```{python}
+def generate_hermes_prompt(user_prompt):
+    return (
+        "<|im_start|>system\n"
+        "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
+        f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
+        "<|im_start|>user\n"
+        + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
+        + "<|im_end|>"
+        + "\n<|im_start|>assistant\n"
+        "<schema>"
+    )
+```
+
+```{python}
+from outlines.fsm.json_schema import convert_json_schema_to_str
+from outlines.fsm.json_schema import build_regex_from_schema
+
+schema_str = convert_json_schema_to_str(json_schema=json_schema)
+regex_str = build_regex_from_schema(schema_str)
+```
+
+```{python}
+nodes_type
+```
+
+```{python}
+prompt = generate_hermes_prompt(texts[0])
+```
+
+```{python}
+print(prompt)
+```
+
+```{python}
+print(prompt + output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>")
+```
+
+```{python}
+output['choices'][0]['text']
+```
+
+```{python}
+nodes = []
+edges = []
+for text in texts:
+    nodes_graph = []
+    edges_graph = []
+    prompt = generate_hermes_prompt(text)
+    outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+        regex_str,
+        outlines_tokenizer,
+    )
+    output = llm.create_completion(
+        prompt,
+        logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+        max_tokens=1000
+    )
+    prompt += output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>"
+    outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+        regex_str,
+        outlines_tokenizer,
+    )
+    output = llm.create_completion(
+        prompt,
+        logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+        max_tokens=1000
+    )
+    for node in json.loads(output['choices'][0]['text'])['nodes']:
+        nodes_graph.append(node)
+    for edge in json.loads(output['choices'][0]['text'])['edges']:
+        edges_graph.append(edge)
+    nodes.append(nodes_graph)
+    edges.append(edges_graph)
+```
+
+```{python}
+nodes[1]
+```
+
+```{python}
+texts[1]
+```
+
+```{python}
+nodes[0]
+```
+
+```{python}
+nodes[1]
+```
+
+```{python}
+nodes_labels = [node['label'] for node in nodes[0]]
+nodes_labels
+```
+
+```{python}
+nodes[1]
+```
+
+```{python}
+for node in nodes[1]:
+    if node['label'] in nodes_labels:
+        print(node)
+```
+
+```{python}
+texts[1]
+```
+
+```{python}
+from graphviz import Digraph
+
+dot = Digraph()
+i = 1
+for node in nodes[i]:
+    dot.node(str(node['id']), node['node_type']+"\n"+node['label'], shape='circle', width='1', height='1')
+for edge in edges[i]:
+    dot.edge(str(edge['source']), str(edge['target']), label=edge['edge_type']+"\n"+ edge['label'])
+dot
+```
+
+```{python}
+prompt = generate_hermes_prompt(text)
+outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+    regex_str,
+    outlines_tokenizer,
+)
+output = llm.create_completion(
+    prompt,
+    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+    max_tokens=1000
+)
+prompt += output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>"
+outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+    regex_str,
+    outlines_tokenizer,
+)
+output = llm.create_completion(
+    prompt,
+    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+    max_tokens=1000
+)
+# for node in json.loads(output['choices'][0]['text'])['nodes']:
+#     nodes_graph.append(node)
+# for edge in json.loads(output['choices'][0]['text'])['edges']:
+#     edges_graph.append(edge)
+```
+
+```{python}
+output['choices'][0]['text']
+```
+
+```{python}
+import json
+from graphviz import Digraph
+
+dot = Digraph()
+for node in json.loads(output['choices'][0]['text'])['nodes']:
+    dot.node(str(node['id']), node['label'], shape='circle', width='1', height='1')
+for edge in json.loads(output['choices'][0]['text'])['edges']:
+    dot.edge(str(edge['source']), str(edge['target']), label=edge['label'])
+```
+
+```{python}
+dot
+```
+
+```{python}
+texts[3]
+```
+
+```{python}
+from graphviz import Digraph
+
+dot = Digraph()
+for node in response.nodes:
+    dot.node(str(node.id), node.label, shape='circle', width='1', height='1')
+for edge in response.edges:
+    dot.edge(str(edge.source), str(edge.target), label=edge.label.upper())
+
+dot
+```
+
+```{python}
+Person, Event, Discovery, Award, Concept, ATTRIBUTE
+```
+
+```{python}
+VISITED, AWARDED, Discovered, COINED, RELATED_TO, RELATIONSHIP PARTICIPATED, WORKED_ON, HAD_ATTRIBUTE, RECEIVED, 
+```
