@@ -1,6 +1,7 @@
 ---
 jupyter:
   jupytext:
+    formats: 'ipynb,qmd'
     text_representation:
       extension: .qmd
       format_name: quarto
@@ -106,10 +107,6 @@ def generate_hermes_prompt(user_prompt):
 ```
 
 ```{python}
-len(texts)
-```
-
-```{python}
 outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
     regex_str,
     outlines_tokenizer,
@@ -125,29 +122,43 @@ output = llm.create_completion(
 ```
 
 ```{python}
-print(output['choices'][0]['text'])
-```
-
-```{python}
 import json
-for node in json.loads(output['choices'][0]['text'])['nodes']:
-    print(node['type'])
-```
 
-```{python}
-nodes_type = []
+nodes = []
+edges = []
 for text in texts:
+    nodes_graph = []
+    edges_graph = []
+    prompt = generate_hermes_prompt(text)
     outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
         regex_str,
         outlines_tokenizer,
     )
     output = llm.create_completion(
-        generate_hermes_prompt(text),
+        prompt,
         logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
         max_tokens=1000
     )
+    prompt += output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>"
+    outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
+        regex_str,
+        outlines_tokenizer,
+    )
+    output = llm.create_completion(
+        prompt,
+        logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
+        max_tokens=1000
+    )
+    for node in json.loads(output['choices'][0]['text'])['nodes']:
+        nodes_graph.append(node)
     for edge in json.loads(output['choices'][0]['text'])['edges']:
-        nodes_type.append(edge)
+        edges_graph.append(edge)
+    nodes.append(nodes_graph)
+    edges.append(edges_graph)
+```
+
+```{python}
+[node['type'] for i in range(len(texts)) for node in nodes[i]], [edge['type'] for i in range(len(texts)) for edge in edges[i]]
 ```
 
 ```{python}
