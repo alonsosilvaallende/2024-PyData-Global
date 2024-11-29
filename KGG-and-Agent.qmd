@@ -93,33 +93,23 @@ tools = [convert_to_openai_tool(KnowledgeGraph)]
 ```
 
 ```{python}
-def generate_hermes_prompt(text):
+def generate_messages(text: str):
     messages = [
         {
             "role": "user",
             "content": f"Describe the following text as a detailed knowledge graph in JSON:\n{text}"
         }
     ]
+    return messages
+```
+
+```{python}
+def generate_hermes_prompt(messages):
     return tokenizer.apply_chat_template(messages, tools=tools, tokenize=False)
 ```
 
 ```{python}
-def generate_hermes_prompt(user_prompt):
-    return (
-        "<|im_start|>system\n"
-        "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
-        f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
-        "<|im_start|>user\n"
-        + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
-        + "<|im_end|>"
-        + "\n<|im_start|>assistant\n"
-        "<schema>"
-    )
-```
-
-```{python}
-def generate_kg(text):
-    prompt = generate_hermes_prompt(text)
+def generate_kg(prompt):
     outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
         regex_str,
         outlines_tokenizer,
@@ -135,11 +125,54 @@ def generate_kg(text):
 ```
 
 ```{python}
-response = generate_kg("Alice loves Bob.")
+user_input = "Alice loves Bob."
+messages = generate_messages(user_input)
+prompt = generate_hermes_prompt(messages)
+assistant_response = generate_kg(prompt)
 ```
 
 ```{python}
-response
+assistant_response
+```
+
+```{python}
+messages.append({"role": "assistant", "content": response})
+```
+
+```{python}
+messages.append(
+    {
+        "role": "user",
+        "content": "Correct (if needed) the generated knowledge graph and add the missing details.",
+    }
+)
+```
+
+```{python}
+messages
+```
+
+```{python}
+prompt = generate_hermes_prompt(messages)
+assistant_response = generate_kg(prompt)
+```
+
+```{python}
+assistant_response
+```
+
+```{python}
+# def generate_hermes_prompt(user_prompt):
+#     return (
+#         "<|im_start|>system\n"
+#         "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
+#         f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
+#         "<|im_start|>user\n"
+#         + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
+#         + "<|im_end|>"
+#         + "\n<|im_start|>assistant\n"
+#         "<schema>"
+#     )
 ```
 
 ```{python}
