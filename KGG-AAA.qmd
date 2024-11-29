@@ -294,9 +294,9 @@ df_edges = df_edges[df_edges["type"] != "OTHER"]
 
 ```{python}
 df_nodes_person = df_nodes[df_nodes["type"] == "PERSON"][["label"]]
-df_nodes_award = df_nodes[df_nodes["type"] == "AWARD"][["label", "property"]]
-df_nodes_discovery = df_nodes[df_nodes["type"] == "DISCOVERY"][["label", "property"]]
-df_nodes_location = df_nodes[df_nodes["type"] == "LOCATION"][["label", "property"]]
+df_nodes_award = df_nodes[df_nodes["type"] == "AWARD"][["label"]]
+df_nodes_discovery = df_nodes[df_nodes["type"] == "DISCOVERY"][["label"]]
+df_nodes_location = df_nodes[df_nodes["type"] == "LOCATION"][["label"]]
 ```
 
 ```{python}
@@ -312,10 +312,10 @@ def my_func(edge_type: str, source: str, target: str):
 ```
 
 ```{python}
-df_edges_awarded = my_func("AWARDED", "PERSON", "AWARD")[["source", "target", "label"]]
-df_edges_discovered = my_func("DISCOVERED", "PERSON", "DISCOVERY")[["source", "target", "label"]]
-df_edges_visited = my_func("VISITED", "PERSON", "LOCATION")[["source", "target", "label"]]
-df_edges_interpersonal_relationship = my_func("INTERPERSONAL_RELATIONSHIP", "PERSON", "PERSON")[["source", "target", "label"]]
+df_edges_awarded = my_func("AWARDED", "PERSON", "AWARD")[["source", "target"]]
+df_edges_discovered = my_func("DISCOVERED", "PERSON", "DISCOVERY")[["source", "target"]]
+df_edges_visited = my_func("VISITED", "PERSON", "LOCATION")[["source", "target"]]
+df_edges_interpersonal_relationship = my_func("INTERPERSONAL_RELATIONSHIP", "PERSON", "PERSON")[["source", "target"]]
 ```
 
 ```{python}
@@ -328,9 +328,9 @@ import kuzu
 db = kuzu.Database()
 conn = kuzu.Connection(db)
 conn.execute("CREATE NODE TABLE Person(name STRING, PRIMARY KEY (name))");
-conn.execute("CREATE NODE TABLE Award(name STRING, property STRING, PRIMARY KEY (name))");
-conn.execute("CREATE NODE TABLE Discovery(name STRING, property STRING, PRIMARY KEY (name))");
-conn.execute("CREATE NODE TABLE Location(name STRING, property STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Award(name STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Discovery(name STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Location(name STRING, PRIMARY KEY (name))");
 conn.execute("COPY Person FROM df_nodes_person");
 conn.execute("COPY Award FROM df_nodes_award");
 conn.execute("COPY Discovery FROM df_nodes_discovery");
@@ -338,10 +338,10 @@ conn.execute("COPY Location FROM df_nodes_location");
 ```
 
 ```{python}
-conn.execute("CREATE REL TABLE Awarded(FROM Person TO Award, property STRING)");
-conn.execute("CREATE REL TABLE Discovered(FROM Person TO Discovery, property STRING)");
-conn.execute("CREATE REL TABLE Interpersonal_Relationship(FROM Person TO Person, property STRING)");
-conn.execute("CREATE REL TABLE Visited(FROM Person TO Location, property STRING)");
+conn.execute("CREATE REL TABLE Awarded(FROM Person TO Award)");
+conn.execute("CREATE REL TABLE Discovered(FROM Person TO Discovery)");
+conn.execute("CREATE REL TABLE Interpersonal_Relationship(FROM Person TO Person)");
+conn.execute("CREATE REL TABLE Visited(FROM Person TO Location)");
 conn.execute("COPY Discovered FROM df_edges_discovered");
 conn.execute("COPY Awarded FROM df_edges_awarded");
 conn.execute("COPY Visited FROM df_edges_visited");
@@ -349,7 +349,7 @@ conn.execute("COPY Interpersonal_Relationship FROM df_edges_interpersonal_relati
 ```
 
 ```{python}
-result = conn.execute("MATCH (a)-[b]->(c) RETURN a.name, b.property, c.name;")
+result = conn.execute("MATCH (a)-[b]->(c) RETURN a.name, c.name;")
 while result.has_next():
     print(result.get_next())
 ```
@@ -378,6 +378,9 @@ Generate the Kùzu dialect of Cypher with the following rules in mind:
 Use only the provided relationship types and properties in the schema.
 Do not use any other relationship types or properties that are not provided.
 Schema:\n""" + graph_db_schema + """
+\nExample:
+The question is:\n"Which songs does the load album have?"
+MATCH (a:ALBUM {name: 'Load'})<-[:IN_ALBUM]-(s:SONG) RETURN s.name
 Note: Do not include any explanations or apologies in your responses.
 Do not respond to any questions that might ask anything else than for you to construct a Cypher statement.
 Do not include any text except the generated Cypher statement.
@@ -626,6 +629,7 @@ def query(question, max_turns=5):
                 elif action=="conversational_response":
                     try:
                         observation = conversational_response(str(action_input))
+                        observation += "\nAnswer to the user."
                     except Exception as e:
                         observation = f"{e}"
             print()
@@ -650,7 +654,7 @@ def query(question, max_turns=5):
 ```
 
 ```{python}
-query("Hello!")
+query("Tell me a joke")
 ```
 
 ```{python}
@@ -658,6 +662,6 @@ query("Which discovery did Marie Curie do?")
 ```
 
 ```{python}
-query("Hi!")
+query("Hi! How are you?")
 ```
 
