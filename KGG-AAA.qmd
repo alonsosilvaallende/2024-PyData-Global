@@ -439,9 +439,9 @@ def query_generator_tool(query):
             ]
         )
     cypher_query = output['choices'][0]['message']['content']
-    print(cypher_query)
+    print(f"\x1b[33m Cypher query: {cypher_query} \x1b[0m")
     cypher_query = query_checker_tool(cypher_query)
-    print(cypher_query)
+    print(f"\x1b[33m Cypher query: {cypher_query} \x1b[0m")
     response = conn.execute(
             f"""
             {cypher_query}
@@ -654,11 +654,15 @@ def query(question, max_turns=5):
 ```
 
 ```{python}
-query("Tell me a joke")
+query("Which discovery did Pierre Curie do?")
 ```
 
 ```{python}
 query("Which discovery did Marie Curie do?")
+```
+
+```{python}
+query("Tell me a joke")
 ```
 
 ```{python}
