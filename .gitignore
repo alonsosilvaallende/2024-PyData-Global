@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+PyData-Global_files/
+*.html
+*.ipynb
+demo_db/
+test_kuzudb/
