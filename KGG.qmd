@@ -33,7 +33,6 @@ class Node(BaseModel):
     label: str = Field(..., description="Label of the node")
     property: Optional[str] = Field(..., description="Property of the node")
 
-
 class Edge(BaseModel):
     """Edge of the Knowledge Graph"""
     source: int = Field(..., description="Unique source of the edge")
@@ -53,11 +52,7 @@ class KnowledgeGraph(BaseModel):
 ```
 
 ```{python}
-json_schema = KnowledgeGraph.schema_json()
-```
-
-```{python}
-# json_schema = KnowledgeGraph.model_json_schema()
+json_schema = KnowledgeGraph.schema_json() # json_schema = KnowledgeGraph.model_json_schema()
 ```
 
 ```{python}
@@ -107,21 +102,6 @@ def generate_hermes_prompt(user_prompt):
 ```
 
 ```{python}
-outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
-    regex_str,
-    outlines_tokenizer,
-)
-```
-
-```{python}
-output = llm.create_completion(
-    generate_hermes_prompt(texts[0]),
-    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
-    max_tokens=1000
-)
-```
-
-```{python}
 import json
 
 nodes = []
@@ -162,61 +142,23 @@ for text in texts:
 ```
 
 ```{python}
-texts[3]
-```
-
-```{python}
-nodes_type
-```
-
-```{python}
-person, award, location, discovery
-```
-
-```{python}
-DISCOVERED, AWARDED, RELATIONSHIP, WORKED_WITH, WORKED_AT
-```
-
-```{python}
-texts[3]
-```
-
-```{python}
 from enum import Enum
 from pydantic.v1 import BaseModel, Field
-
-class Node_Type(str, Enum):
-    """The type of node of the knowledge graph"""
-    PERSON = "PERSON"
-    AWARD = "AWARD"
-    LOCATION = "LOCATION"
-    DISCOVERY = "DISCOVERY"
+from typing import Literal
 
 class Node(BaseModel):
     """Node of the Knowledge Graph"""
-
-    id: int = Field(..., description="Unique identifier of the node")
-    node_type : Node_Type
+    id: int = Field(..., description="Unique identifier of the node starting from 0.")
+    type : Literal["PERSON", "AWARD", "DISCOVERY", "LOCATION", "OTHER"] = Field(..., description="Type of the node")
     label: str = Field(..., description="Label of the node")
     property: Optional[str] = Field(..., description="Property of the node")
-```
-
-```{python}
-class Edge_Type(str, Enum):
-    """The type of edge of the knowledge graph"""
-    DISCOVERED = "DISCOVERED"
-    AWARDED = "AWARDED"
-    RELATIONSHIP = "RELATIONSHIP"
-    VISITED = "VISITED"
-
 
 class Edge(BaseModel):
     """Edge of the Knowledge Graph"""
-
     source: int = Field(..., description="Unique source of the edge")
     target: int = Field(..., description="Unique target of the edge")
     label: str = Field(..., description="Label of the edge")
-    edge_type: Edge_Type
+    type: Literal["DISCOVERED", "AWARDED", "INTERPERSONAL_RELATIONSHIP", "VISITED", "OTHER"] = Field(..., description="Type of the edge")
 ```
 
 ```{python}
@@ -224,7 +166,6 @@ from typing import List
 
 class KnowledgeGraph(BaseModel):
     """Generated Knowledge Graph"""
-
     nodes: List[Node] = Field(..., description="List of nodes of the knowledge graph")
     edges: List[Edge] = Field(..., description="List of edges of the knowledge graph")
 ```
@@ -234,45 +175,11 @@ json_schema = KnowledgeGraph.schema_json()
 ```
 
 ```{python}
-def generate_hermes_prompt(user_prompt):
-    return (
-        "<|im_start|>system\n"
-        "You are a world class AI model who answers questions in JSON with correct Pydantic schema. "
-        f"Here's the json schema you must adhere to:\n<schema>\n{json_schema}\n</schema><|im_end|>\n"
-        "<|im_start|>user\n"
-        + "Describe the following text as a detailed knowledge graph in JSON:\n"+ user_prompt
-        + "<|im_end|>"
-        + "\n<|im_start|>assistant\n"
-        "<schema>"
-    )
-```
-
-```{python}
 from outlines.fsm.json_schema import convert_json_schema_to_str
 from outlines.fsm.json_schema import build_regex_from_schema
 
 schema_str = convert_json_schema_to_str(json_schema=json_schema)
 regex_str = build_regex_from_schema(schema_str)
-```
-
-```{python}
-nodes_type
-```
-
-```{python}
-prompt = generate_hermes_prompt(texts[0])
-```
-
-```{python}
-print(prompt)
-```
-
-```{python}
-print(prompt + output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>")
-```
-
-```{python}
-output['choices'][0]['text']
 ```
 
 ```{python}
@@ -288,8 +195,10 @@ for text in texts:
     )
     output = llm.create_completion(
         prompt,
+        temperature=.1,
         logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
-        max_tokens=1000
+        max_tokens=1000,
+        seed=42
     )
     prompt += output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>"
     outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
@@ -298,8 +207,10 @@ for text in texts:
     )
     output = llm.create_completion(
         prompt,
+        temperature=.1,
         logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
-        max_tokens=1000
+        max_tokens=1000,
+        seed=42
     )
     for node in json.loads(output['choices'][0]['text'])['nodes']:
         nodes_graph.append(node)
@@ -310,82 +221,158 @@ for text in texts:
 ```
 
 ```{python}
-nodes[1]
-```
-
-```{python}
-texts[1]
-```
-
-```{python}
 nodes[0]
 ```
 
 ```{python}
-nodes[1]
-```
-
-```{python}
-nodes_labels = [node['label'] for node in nodes[0]]
-nodes_labels
-```
-
-```{python}
-nodes[1]
-```
-
-```{python}
-for node in nodes[1]:
-    if node['label'] in nodes_labels:
-        print(node)
-```
-
-```{python}
-texts[1]
+edges[0]
 ```
 
 ```{python}
 from graphviz import Digraph
 
 dot = Digraph()
-i = 1
+i = 3
 for node in nodes[i]:
-    dot.node(str(node['id']), node['node_type']+"\n"+node['label'], shape='circle', width='1', height='1')
+    if node['type'] != "OTHER":
+        dot.node(str(node['id']), node['type']+"\n"+node['label'], shape='circle', width='1', height='1')
 for edge in edges[i]:
-    dot.edge(str(edge['source']), str(edge['target']), label=edge['edge_type']+"\n"+ edge['label'])
+    if edge["type"] != "OTHER" and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":
+        dot.edge(str(edge['source']), str(edge['target']), label=edge['type']+"\n"+ edge['label'])
 dot
 ```
 
 ```{python}
-prompt = generate_hermes_prompt(text)
-outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
-    regex_str,
-    outlines_tokenizer,
-)
-output = llm.create_completion(
-    prompt,
-    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
-    max_tokens=1000
-)
-prompt += output['choices'][0]['text'] + "</schema><|im_end|>\n<|im_start|>user\nCorrect the generated knowledge graph and add the missing details.<|im_end|>\n<|im_start|>assistant\n<schema>"
-outlines_logits_processor = outlines.processors.RegexLogitsProcessor(
-    regex_str,
-    outlines_tokenizer,
-)
-output = llm.create_completion(
-    prompt,
-    logits_processor=transformers.LogitsProcessorList([outlines_logits_processor]),
-    max_tokens=1000
-)
-# for node in json.loads(output['choices'][0]['text'])['nodes']:
-#     nodes_graph.append(node)
-# for edge in json.loads(output['choices'][0]['text'])['edges']:
-#     edges_graph.append(edge)
+import pandas as pd
+
+df_nodes = pd.DataFrame({
+    'id': [node['id'] for node in nodes[0]],
+    'label': [node['label'] for node in nodes[0]],
+    'type': [node['type'] for node in nodes[0]],
+    'property': [node['property'] for node in nodes[0]]
+})
 ```
 
 ```{python}
-output['choices'][0]['text']
+df_edges = pd.DataFrame({
+    'source': [nodes[0][edge['source']]['label'] for edge in edges[0]],
+    'target': [nodes[0][edge['target']]['label'] for edge in edges[0]],
+    'type': [edge['type'] for edge in edges[0]],
+    'label': [edge['label'] for edge in edges[0]]
+})
 ```
+
+```{python}
+for i in range(1,len(texts)):
+    df_nodes_aux = pd.DataFrame({
+        'id': [node['id']+len(df_nodes) for node in nodes[i]],
+        'label': [node['label'] for node in nodes[i]],
+        'type': [node['type'] for node in nodes[i]],
+        'property': [node['property'] for node in nodes[i]]
+    })
+    df_edges_aux = pd.DataFrame({
+        'source': [nodes[i][edge['source']]['label'] for edge in edges[i]],
+        'target': [nodes[i][edge['target']]['label'] for edge in edges[i]],
+        'type': [edge['type'] for edge in edges[i]],
+        'label': [edge['label'] for edge in edges[i]]
+    })
+    df_nodes = pd.concat([df_nodes, df_nodes_aux])
+    df_edges = pd.concat([df_edges, df_edges_aux])
+```
+
+```{python}
+df_nodes = df_nodes[df_nodes["type"] != "OTHER"].drop_duplicates(subset="label")[["label", "type", "property"]]
+df_edges = df_edges[df_edges["type"] != "OTHER"]
+```
+
+```{python}
+df_nodes_person = df_nodes[df_nodes["type"] == "PERSON"][["label", "property"]]
+df_nodes_award = df_nodes[df_nodes["type"] == "AWARD"][["label", "property"]]
+df_nodes_discovery = df_nodes[df_nodes["type"] == "DISCOVERY"][["label", "property"]]
+df_nodes_location = df_nodes[df_nodes["type"] == "LOCATION"][["label", "property"]]
+```
+
+```{python}
+df_edges_awarded = df_edges[df_edges["type"] == "AWARDED"]
+df_edges_discovered = df_edges[df_edges["type"] == "DISCOVERED"]
+df_edges_visited = df_edges[df_edges["type"] == "VISITED"]
+df_edges_interpersonal_relationship = df_edges[df_edges["type"] == "INTERPERSONAL_RELATIONSHIP"]
+```
+
+```{python}
+df_edges_awarded = df_edges_awarded[["source", "target", "label"]]
+```
+
+```{python}
+df_edges_discovered
+```
+
+```{python}
+df_nodes_discovery
+```
+
+```{python}
+df_edges_discovered = df_edges_discovered[["source", "target", "label"]]
+df_edges_discovered = df_edges_discovered.iloc[:3]
+```
+
+```{python}
+df_edges_visited = df_edges_visited[["source", "target", "label"]]
+```
+
+```{python}
+df_nodes_location
+```
+
+```{python}
+df_edges_visited = df_edges_visited.iloc[1:]
+```
+
+```{python}
+df_edges_interpersonal_relationship = df_edges_interpersonal_relationship[["source", "target", "label"]]
+```
+
+```{python}
+import kuzu
+
+db = kuzu.Database()
+conn = kuzu.Connection(db)
+conn.execute("CREATE NODE TABLE Person(name STRING, property STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Award(name STRING, property STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Discovery(name STRING, property STRING, PRIMARY KEY (name))");
+conn.execute("CREATE NODE TABLE Location(name STRING, property STRING, PRIMARY KEY (name))");
+conn.execute("COPY Person FROM df_nodes_person");
+conn.execute("COPY Award FROM df_nodes_award");
+conn.execute("COPY Discovery FROM df_nodes_discovery");
+conn.execute("COPY Location FROM df_nodes_location");
+```
+
+```{python}
+conn.execute("CREATE REL TABLE Awarded(FROM Person TO Award, property STRING)");
+conn.execute("CREATE REL TABLE Discovered(FROM Person TO Discovery, property STRING)");
+conn.execute("CREATE REL TABLE Interpersonal_Relationship(FROM Person TO Person, property STRING)");
+conn.execute("CREATE REL TABLE Visited(FROM Person TO Location, property STRING)");
+conn.execute("COPY Discovered FROM df_edges_discovered");
+conn.execute("COPY Awarded FROM df_edges_awarded");
+conn.execute("COPY Visited FROM df_edges_visited");
+conn.execute("COPY Interpersonal_Relationship FROM df_edges_interpersonal_relationship");
+```
+
+```{python}
+result = conn.execute("MATCH (a)-[b]->(c) RETURN a.name, b.property, c.name;")
+while result.has_next():
+    print(result.get_next())
+```
+
+```{python}
+from langchain_community.graphs import KuzuGraph
+
+KuzuGraph(db).get_schema
+```
+
+
+
+
 
 ```{python}
 import json
