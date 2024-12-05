@@ -1109,7 +1109,7 @@ query("Tell me a joke")
 - [Coalescence](https://blog.dottxt.co/coalescence.html) by [Will Kurt](https://twitter.com/willkurt)
 - [Fast, High-Fidelity LLM Decoding with Regex Constraints](https://github.com/vivien000/regex-constrained-decoding) by [Vivien Tran-Thien](https://github.com/vivien000)
 - [A simple Python implementation of the ReAct pattern for LLMs](https://til.simonwillison.net/llms/python-react-pattern) by [Simon Willison](https://simonwillison.net/)
-- Kùzu (graph DB) + Llama.cpp (inference) + Outlines (structured outputs) + LangChain (framework) + Solara (visualization)
+- Kùzu (graph DB) + Llama.cpp (inference) + Outlines (structured generation) + LangChain (framework) + Solara (visualization)
 
 ### How was my presentation? {visibility="uncounted"}
 
