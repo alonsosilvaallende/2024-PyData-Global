@@ -409,24 +409,10 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/introduction" id="/toc-introduction">Introduction</a>
-<ul>
-
-
-
-</ul></li>
+<li><a href="#/introduction" id="/toc-introduction">Introduction</a></li>
 <li><a href="#/what-is-structured-generation" id="/toc-what-is-structured-generation">What is Structured Generation?</a></li>
-<li><a href="#/structured-outputs-structured-generation" id="/toc-structured-outputs-structured-generation">Structured Outputs + Structured Generation</a></li>
-<li><a href="#/knowledge-graph-generation" id="/toc-knowledge-graph-generation">Knowledge Graph Generation</a>
-<ul>
-
-
-</ul></li>
-<li><a href="#/kg-based-agent" id="/toc-kg-based-agent">KG-based Agent</a>
-<ul>
-<li><a href="#/tools" id="/toc-tools">Tools</a></li>
-<li><a href="#/react-agent" id="/toc-react-agent">ReAct agent</a></li>
-</ul></li>
+<li><a href="#/knowledge-graph-generation" id="/toc-knowledge-graph-generation">Knowledge Graph Generation</a></li>
+<li><a href="#/kg-based-agents" id="/toc-kg-based-agents">KG-based Agents</a></li>
 <li><a href="#/conclusions" id="/toc-conclusions">Conclusions</a></li>
 </ul>
 </nav>
@@ -487,7 +473,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 </section>
 <section id="structured-outputs-in-code" class="slide level3">
 <h3>Structured Outputs in Code</h3>
-<div id="53a0a841-88d2-4265-b635-d28e0b772263" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:09.085674Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:09.085178Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:13.691988Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:13.691521Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:09.085633Z&quot;}" data-scrolled="true" data-execution_count="2">
+<div id="53a0a841-88d2-4265-b635-d28e0b772263" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:35.129254Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:35.128770Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:39.746264Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:39.745241Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:35.129193Z&quot;}" data-scrolled="true" data-execution_count="2">
 <div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1"></a><span class="im">import</span> llama_cpp  </span>
 <span id="annotated-cell-1-2"><a href="#annotated-cell-1-2"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-1-3" class="code-annotation-target"><a href="#annotated-cell-1-3"></a>model_id <span class="op">=</span> <span class="st">"NousResearch/Hermes-3-Llama-3.1-8B"</span></span>
@@ -518,7 +504,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 </section>
 <section id="structured-outputs-in-code-1" class="slide level3">
 <h3>Structured Outputs in Code</h3>
-<div id="1dab1c8f-18c7-4fcd-98ad-42f8eaeb0013" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:13.692783Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:13.692511Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:13.852159Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:13.851342Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:13.692767Z&quot;}" data-execution_count="3">
+<div id="1dab1c8f-18c7-4fcd-98ad-42f8eaeb0013" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:39.747187Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:39.746902Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:39.906251Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:39.905409Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:39.747173Z&quot;}" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Literal</span>
 <span id="cb1-2"><a href=""></a></span>
 <span id="cb1-3"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
@@ -535,7 +521,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 </section>
 <section id="structured-outputs-in-code-2" class="slide level3">
 <h3>Structured Outputs in Code</h3>
-<div id="c08d3308-7b15-4001-8f59-8c13cf9f4eda" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:13.852846Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:13.852701Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:14.235516Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:14.235136Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:13.852832Z&quot;}" data-execution_count="4">
+<div id="c08d3308-7b15-4001-8f59-8c13cf9f4eda" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:39.907004Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:39.906853Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:40.280296Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:40.279682Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:39.906992Z&quot;}" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> langchain_core.utils.function_calling <span class="im">import</span> convert_to_openai_tool</span>
 <span id="cb2-2"><a href=""></a></span>
 <span id="cb2-3"><a href=""></a>tools <span class="op">=</span> [convert_to_openai_tool(Sentiment)]</span>
@@ -554,7 +540,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 </section>
 <section id="structured-outputs-in-code-3" class="slide level3">
 <h3>Structured Outputs in Code</h3>
-<div id="6f3133ef-c7ba-4d4a-8790-fbb29e39c24b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:14.239934Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:14.239741Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:14.675068Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:14.674659Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:14.239921Z&quot;}" data-execution_count="6">
+<div id="6f3133ef-c7ba-4d4a-8790-fbb29e39c24b" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:40.285586Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:40.285382Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:40.716666Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:40.716018Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:40.285572Z&quot;}" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1-17|1|1,8-9|1,8-9,13-14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>user_input <span class="op">=</span> <span class="st">"You are great"</span></span>
 <span id="cb4-2"><a href=""></a></span>
 <span id="cb4-3"><a href=""></a>output <span class="op">=</span> llm.create_chat_completion(</span>
@@ -596,7 +582,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <section id="observation-llms-are-samplers" class="slide level3">
 <h3>Observation: LLMs are samplers</h3>
 <p><a href="https://alonsosilva-nexttokenprediction.hf.space">https://alonsosilva-nexttokenprediction.hf.space</a></p>
-<div id="c794ba07-f3f4-4048-a288-3b68fa1140cc" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:14.675712Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:14.675555Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:14.679604Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:14.678991Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:14.675698Z&quot;}" data-execution_count="7">
+<div id="c794ba07-f3f4-4048-a288-3b68fa1140cc" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:40.717390Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:40.717244Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:40.721605Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:40.721036Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:40.717377Z&quot;}" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 
         <iframe width="950" height="450" src="https://alonsosilva-nexttokenprediction.hf.space" frameborder="0" allowfullscreen=""></iframe>
@@ -658,7 +644,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <img data-src="./assets/what-is-in-a-label.jpg" style="width:25.0%" class="r-stretch"></section>
 <section id="structured-generation-in-code" class="slide level3">
 <h3>Structured Generation in Code</h3>
-<div id="d22b6c1d-4b76-421e-90c3-d85fd15d1965" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:14.680223Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:14.680094Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.124646Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.123675Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:14.680212Z&quot;}" data-source-line-numbers="3" data-class-source="numberLines" data-execution_count="8">
+<div id="d22b6c1d-4b76-421e-90c3-d85fd15d1965" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:40.722205Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:40.722061Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.153702Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.152430Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:40.722191Z&quot;}" data-source-line-numbers="3" data-class-source="numberLines" data-execution_count="8">
 <div class="sourceCode cell-code" id="annotated-cell-5"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1"></a><span class="im">import</span> outlines</span>
 <span id="annotated-cell-5-2"><a href="#annotated-cell-5-2"></a></span>
 <span id="annotated-cell-5-3"><a href="#annotated-cell-5-3"></a><span class="im">import</span> transformers</span>
@@ -684,7 +670,7 @@ Alonso Silva (GitHub: alonsosilvaallende)
 </section>
 <section id="structured-generation-in-code-1" class="slide level3">
 <h3>Structured Generation in Code</h3>
-<div id="0d3b3dff-a14f-4aeb-a9a7-b3b708648de6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.125539Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.125331Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.318757Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.317909Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.125523Z&quot;}" data-execution_count="9">
+<div id="0d3b3dff-a14f-4aeb-a9a7-b3b708648de6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.154559Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.154386Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.348342Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.347700Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.154541Z&quot;}" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="1-18|13-15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a>user_input <span class="op">=</span> <span class="st">"You are great"</span></span>
 <span id="cb6-2"><a href=""></a></span>
 <span id="cb6-3"><a href=""></a>output <span class="op">=</span> llm.create_chat_completion(</span>
@@ -707,15 +693,14 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <pre><code>'{ "label": "Positive" }'</code></pre>
 </div>
 </div>
-</section></section>
-<section>
-<section id="structured-outputs-structured-generation" class="title-slide slide level1 center">
-<h1>Structured Outputs + Structured Generation</h1>
+</section>
+<section id="structured-outputs-structured-generation" class="title-slide slide level2 center">
+<h2>Structured Outputs + Structured Generation</h2>
 
 </section>
 <section id="section-6" class="slide level3">
 <h3></h3>
-<div id="04265e11-0c76-4809-ad60-7696ad5af123" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.488122Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.487906Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.851905Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.851354Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.488106Z&quot;}" data-execution_count="11">
+<div id="04265e11-0c76-4809-ad60-7696ad5af123" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.509602Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.509089Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.887668Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.887020Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.509562Z&quot;}" data-execution_count="11">
 <div class="sourceCode cell-code" id="annotated-cell-7" data-code-line-numbers="1-18|12-13|14-16|1-18"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1"></a>user_input <span class="op">=</span> <span class="st">"You are great"</span></span>
 <span id="annotated-cell-7-2"><a href="#annotated-cell-7-2"></a>output <span class="op">=</span> llm.create_chat_completion(</span>
 <span id="annotated-cell-7-3"><a href="#annotated-cell-7-3"></a>    messages<span class="op">=</span>[</span>
@@ -750,7 +735,8 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <pre><code>'{ "label": "Positive"}'</code></pre>
 </div>
 </div>
-</section></section>
+</section>
+</section>
 <section>
 <section id="knowledge-graph-generation" class="title-slide slide level1 center">
 <h1>Knowledge Graph Generation</h1>
@@ -761,10 +747,10 @@ Alonso Silva (GitHub: alonsosilvaallende)
 <p><img data-src="./assets/kuzu-logo.png" title="Kùzu logo" style="width:40.0%"></p>
 <p>Graph database: <a href="https://kuzudb.com/">https://kuzudb.com/</a></p>
 </section>
-<section id="section-8" class="slide level3">
-<h3></h3>
-<div id="19d5ebc8-553b-48f2-b15f-8498c0ebdd4f" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.853124Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.852669Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.857331Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.856697Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.853093Z&quot;}" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/home/asilva/quarto/2024-PyData-Global/assets/curie.txt'</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<section id="consider-a-text" class="slide level3">
+<h3>Consider a text</h3>
+<div id="19d5ebc8-553b-48f2-b15f-8498c0ebdd4f" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.888411Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.888259Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.892556Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.891939Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.888397Z&quot;}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'./assets/curie.txt'</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
 <span id="cb9-2"><a href=""></a>    curie_text <span class="op">=</span> f.read()</span>
 <span id="cb9-3"><a href=""></a><span class="bu">print</span>(curie_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -779,9 +765,9 @@ This one, in chemistry, was for the discovery of polonium and radium. In her acc
 </div>
 </div>
 </section>
-<section id="chunking" class="slide level3">
-<h3>Chunking</h3>
-<div id="288a6b2b-e677-44c7-aef4-4c8de6a9bacf" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.858828Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.858246Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.878381Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.877695Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.858789Z&quot;}" data-execution_count="13">
+<section id="chunk-the-text" class="slide level3">
+<h3>Chunk the text</h3>
+<div id="288a6b2b-e677-44c7-aef4-4c8de6a9bacf" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.893050Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.892930Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.915256Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.914150Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.893039Z&quot;}" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>texts <span class="op">=</span> curie_text.split(<span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>)</span>
 <span id="cb11-2"><a href=""></a>texts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -792,29 +778,31 @@ This one, in chemistry, was for the discovery of polonium and radium. In her acc
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level3">
+<section id="section-8" class="slide level3">
 <h3></h3>
-<div id="5c9c53bd-eed7-413b-b080-11023fff2252" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.879914Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.879333Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.896580Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.895487Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.879877Z&quot;}" data-execution_count="14">
+<div id="5c9c53bd-eed7-413b-b080-11023fff2252" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.916816Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.916310Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.933275Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.932136Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.916778Z&quot;}" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
 <span id="cb13-2"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
 <span id="cb13-3"><a href=""></a></span>
 <span id="cb13-4"><a href=""></a><span class="kw">class</span> Node(BaseModel):</span>
 <span id="cb13-5"><a href=""></a>    <span class="co">"""Node of the Knowledge Graph"""</span></span>
-<span id="cb13-6"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span>)</span>
-<span id="cb13-7"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
-<span id="cb13-8"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
-<span id="cb13-9"><a href=""></a></span>
-<span id="cb13-10"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
-<span id="cb13-11"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
-<span id="cb13-12"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
-<span id="cb13-13"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
-<span id="cb13-14"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
-<span id="cb13-15"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(</span>
+<span id="cb13-7"><a href=""></a>        ..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span></span>
+<span id="cb13-8"><a href=""></a>    )</span>
+<span id="cb13-9"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
+<span id="cb13-10"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
+<span id="cb13-11"><a href=""></a></span>
+<span id="cb13-12"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
+<span id="cb13-13"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
+<span id="cb13-14"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
+<span id="cb13-15"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
+<span id="cb13-16"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
+<span id="cb13-17"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-10" class="slide level3">
+<section id="section-9" class="slide level3">
 <h3></h3>
-<div id="3fe34540-cd3f-43cd-aab4-639157e5fd4c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.921559Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.921065Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.941628Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.940477Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.921521Z&quot;}" data-execution_count="16">
+<div id="3fe34540-cd3f-43cd-aab4-639157e5fd4c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.951035Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.950524Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.968568Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.967609Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.950996Z&quot;}" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> List</span>
 <span id="cb14-2"><a href=""></a><span class="im">from</span> langchain_core.utils.function_calling <span class="im">import</span> convert_to_openai_tool</span>
 <span id="cb14-3"><a href=""></a></span>
@@ -828,10 +816,10 @@ This one, in chemistry, was for the discovery of polonium and radium. In her acc
 <span id="cb14-11"><a href=""></a>tools <span class="op">=</span> [convert_to_openai_tool(KnowledgeGraph)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-11" class="slide level3">
+<section id="section-10" class="slide level3">
 <h3></h3>
-<div id="0d5ee96d-d356-4e12-8e9b-f016971fecc9" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.943828Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.942884Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.953314Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.952373Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.943785Z&quot;}" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="kw">def</span> build_messages(text: <span class="bu">str</span>):</span>
+<div id="0d5ee96d-d356-4e12-8e9b-f016971fecc9" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:42.970199Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:42.969665Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:42.981187Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:42.980048Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:42.970160Z&quot;}" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="6-9,14-15|1-18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="kw">def</span> build_messages(text: <span class="bu">str</span>):</span>
 <span id="cb15-2"><a href=""></a>    messages <span class="op">=</span> [</span>
 <span id="cb15-3"><a href=""></a>        {</span>
 <span id="cb15-4"><a href=""></a>            <span class="st">"role"</span>: <span class="st">"system"</span>,</span>
@@ -851,118 +839,132 @@ This one, in chemistry, was for the discovery of polonium and radium. In her acc
 <span id="cb15-18"><a href=""></a>    <span class="cf">return</span> messages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-12" class="slide level3">
+<section id="section-11" class="slide level3">
 <h3></h3>
-<div id="e3b1585a-da30-4dc4-968f-50faa6b348c0" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:16.986068Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:16.985312Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:16.991425Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:16.990349Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:16.986034Z&quot;}" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="kw">def</span> generate_assistant_message(messages):</span>
-<span id="cb16-2"><a href=""></a>    outlines_logits_processor <span class="op">=</span> outlines.processors.JSONLogitsProcessor(</span>
-<span id="cb16-3"><a href=""></a>        KnowledgeGraph,</span>
-<span id="cb16-4"><a href=""></a>        outlines_tokenizer,</span>
-<span id="cb16-5"><a href=""></a>        whitespace_pattern<span class="op">=</span><span class="vs">r"[\n\t ]*"</span></span>
-<span id="cb16-6"><a href=""></a>    )</span>
-<span id="cb16-7"><a href=""></a>    output <span class="op">=</span> llm.create_chat_completion(</span>
-<span id="cb16-8"><a href=""></a>        messages<span class="op">=</span>messages,</span>
-<span id="cb16-9"><a href=""></a>        tools<span class="op">=</span>tools,</span>
-<span id="cb16-10"><a href=""></a>        tool_choice<span class="op">=</span>{<span class="st">"type"</span>: <span class="st">"function"</span>, </span>
-<span id="cb16-11"><a href=""></a>                     <span class="st">"function"</span>: {<span class="st">"name"</span>: <span class="st">"KnowledgeGraph"</span>}},</span>
-<span id="cb16-12"><a href=""></a>        logits_processor<span class="op">=</span>transformers.LogitsProcessorList(</span>
-<span id="cb16-13"><a href=""></a>            [outlines_logits_processor]),</span>
-<span id="cb16-14"><a href=""></a>        temperature<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb16-15"><a href=""></a>        seed<span class="op">=</span><span class="dv">42</span>,</span>
-<span id="cb16-16"><a href=""></a>        max_tokens<span class="op">=</span><span class="dv">5000</span>,</span>
-<span id="cb16-17"><a href=""></a>    )</span>
-<span id="cb16-18"><a href=""></a>    <span class="cf">return</span> output[<span class="st">"choices"</span>][<span class="dv">0</span>][<span class="st">"message"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e3b1585a-da30-4dc4-968f-50faa6b348c0" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:43.010084Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:43.009685Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:43.015666Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:43.014681Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:43.010054Z&quot;}" data-execution_count="19">
+<div class="sourceCode cell-code" id="annotated-cell-13" data-code-line-numbers="9-13|1-18"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1"></a><span class="kw">def</span> generate_assistant_message(messages):</span>
+<span id="annotated-cell-13-2"><a href="#annotated-cell-13-2"></a>    outlines_logits_processor <span class="op">=</span> outlines.processors.JSONLogitsProcessor(</span>
+<span id="annotated-cell-13-3"><a href="#annotated-cell-13-3"></a>        KnowledgeGraph,</span>
+<span id="annotated-cell-13-4"><a href="#annotated-cell-13-4"></a>        outlines_tokenizer,</span>
+<span id="annotated-cell-13-5"><a href="#annotated-cell-13-5"></a>        whitespace_pattern<span class="op">=</span><span class="vs">r"[\n\t ]*"</span></span>
+<span id="annotated-cell-13-6"><a href="#annotated-cell-13-6"></a>    )</span>
+<span id="annotated-cell-13-7"><a href="#annotated-cell-13-7"></a>    output <span class="op">=</span> llm.create_chat_completion(</span>
+<span id="annotated-cell-13-8"><a href="#annotated-cell-13-8"></a>        messages<span class="op">=</span>messages,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-13-9" class="code-annotation-target"><a href="#annotated-cell-13-9"></a>        tools<span class="op">=</span>tools,</span>
+<span id="annotated-cell-13-10"><a href="#annotated-cell-13-10"></a>        tool_choice<span class="op">=</span>{<span class="st">"type"</span>: <span class="st">"function"</span>, </span>
+<span id="annotated-cell-13-11"><a href="#annotated-cell-13-11"></a>                     <span class="st">"function"</span>: {<span class="st">"name"</span>: <span class="st">"KnowledgeGraph"</span>}},</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-13-12" class="code-annotation-target"><a href="#annotated-cell-13-12"></a>        logits_processor<span class="op">=</span>transformers.LogitsProcessorList(</span>
+<span id="annotated-cell-13-13"><a href="#annotated-cell-13-13"></a>            [outlines_logits_processor]),</span>
+<span id="annotated-cell-13-14"><a href="#annotated-cell-13-14"></a>        temperature<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="annotated-cell-13-15"><a href="#annotated-cell-13-15"></a>        seed<span class="op">=</span><span class="dv">42</span>,</span>
+<span id="annotated-cell-13-16"><a href="#annotated-cell-13-16"></a>        max_tokens<span class="op">=</span><span class="dv">5000</span>,</span>
+<span id="annotated-cell-13-17"><a href="#annotated-cell-13-17"></a>    )</span>
+<span id="annotated-cell-13-18"><a href="#annotated-cell-13-18"></a>    <span class="cf">return</span> output[<span class="st">"choices"</span>][<span class="dv">0</span>][<span class="st">"message"</span>]</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="9" data-code-annotation="1">Structured Outputs</span>
+</dd>
+<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="12" data-code-annotation="2">Structured Generation</span>
+</dd>
+</dl>
+</div>
 </div>
 </section>
-<section id="section-13" class="title-slide slide level2 center">
+<section id="section-12" class="title-slide slide level2 center">
 <h2></h2>
-<div id="ccca9f8b-59a9-4722-9fd3-b5c74aa1f12a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:21.717613Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:21.717376Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:04:25.598028Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:04:25.597459Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:21.717599Z&quot;}" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="kw">def</span> generate_kg(text):</span>
-<span id="cb17-2"><a href=""></a>    messages <span class="op">=</span> build_messages(text)</span>
-<span id="cb17-3"><a href=""></a>    assistant_message <span class="op">=</span> generate_assistant_message(messages)</span>
-<span id="cb17-4"><a href=""></a>    <span class="cf">return</span> assistant_message[<span class="st">"tool_calls"</span>][<span class="dv">0</span>][<span class="st">"function"</span>][<span class="st">"arguments"</span>]</span>
-<span id="cb17-5"><a href=""></a>    </span>
-<span id="cb17-6"><a href=""></a>generate_kg(<span class="st">"Alice loves Bob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ccca9f8b-59a9-4722-9fd3-b5c74aa1f12a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:39:47.251703Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:39:47.251540Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:39:51.017323Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:39:51.016714Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:39:47.251689Z&quot;}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="kw">def</span> generate_kg(text):</span>
+<span id="cb16-2"><a href=""></a>    messages <span class="op">=</span> build_messages(text)</span>
+<span id="cb16-3"><a href=""></a>    assistant_message <span class="op">=</span> generate_assistant_message(messages)</span>
+<span id="cb16-4"><a href=""></a>    <span class="cf">return</span> assistant_message[<span class="st">"tool_calls"</span>][<span class="dv">0</span>][<span class="st">"function"</span>][<span class="st">"arguments"</span>]</span>
+<span id="cb16-5"><a href=""></a>    </span>
+<span id="cb16-6"><a href=""></a>generate_kg(<span class="st">"Alice loves Bob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>'{"nodes": [{"id": 1, "type": "Person", "label": "Alice"}, {"id": 2, "type": "Person", "label": "Bob"}], "edges": [{"source": 1, "target": 2, "type": "LOVES", "label": "loves"}]}'</code></pre>
+<pre><code>'{"nodes": [{"id": 0, "type": "Person", "label": "Alice"}, {"id": 1, "type": "Person", "label": "Bob"}], "edges": [{"source": 0, "target": 1, "type": "LOVES", "label": "loves"}]}'</code></pre>
 </div>
 </div>
 </section>
 
-<section id="section-14" class="title-slide slide level2 center">
+<section id="section-13" class="title-slide slide level2 center">
 <h2></h2>
 <div id="d337defd-1766-46d8-b68a-d38d777d9274" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:04:29.468931Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:04:29.468777Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:05:46.995495Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:05:46.994739Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:04:29.468916Z&quot;}" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="im">import</span> json</span>
-<span id="cb19-2"><a href=""></a></span>
-<span id="cb19-3"><a href=""></a>nodes, edges <span class="op">=</span> [], []</span>
-<span id="cb19-4"><a href=""></a><span class="cf">for</span> text <span class="kw">in</span> texts:</span>
-<span id="cb19-5"><a href=""></a>    kg <span class="op">=</span> generate_kg(text)</span>
-<span id="cb19-6"><a href=""></a>    nodes.append(json.loads(kg)[<span class="st">"nodes"</span>])</span>
-<span id="cb19-7"><a href=""></a>    edges.append(json.loads(kg)[<span class="st">"edges"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">import</span> json</span>
+<span id="cb18-2"><a href=""></a></span>
+<span id="cb18-3"><a href=""></a>nodes, edges <span class="op">=</span> [], []</span>
+<span id="cb18-4"><a href=""></a><span class="cf">for</span> text <span class="kw">in</span> texts:</span>
+<span id="cb18-5"><a href=""></a>    kg <span class="op">=</span> generate_kg(text)</span>
+<span id="cb18-6"><a href=""></a>    nodes.append(json.loads(kg)[<span class="st">"nodes"</span>])</span>
+<span id="cb18-7"><a href=""></a>    edges.append(json.loads(kg)[<span class="st">"edges"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="type-of-node-and-type-of-edge-candidates" class="slide level3">
-<h3>Type of node and type of edge candidates</h3>
+<section id="node-and-edge-type-candidates" class="slide level3">
+<h3>Node and Edge Type Candidates</h3>
 <div id="6f39c52a-5659-4540-89ee-16f8d10cddb7" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:05:46.996201Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:05:46.996054Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:05:47.000778Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:05:47.000164Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:05:46.996187Z&quot;}" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb20-2"><a href=""></a></span>
-<span id="cb20-3"><a href=""></a><span class="bu">print</span>(</span>
-<span id="cb20-4"><a href=""></a>    Counter([node[<span class="st">"type"</span>].upper() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(texts)) </span>
-<span id="cb20-5"><a href=""></a>             <span class="cf">for</span> node <span class="kw">in</span> nodes[i]])</span>
-<span id="cb20-6"><a href=""></a>)</span>
-<span id="cb20-7"><a href=""></a><span class="bu">print</span>(</span>
-<span id="cb20-8"><a href=""></a>    Counter([edge[<span class="st">"type"</span>].upper() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(texts)) </span>
-<span id="cb20-9"><a href=""></a>             <span class="cf">for</span> edge <span class="kw">in</span> edges[i]])</span>
-<span id="cb20-10"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb19-2"><a href=""></a></span>
+<span id="cb19-3"><a href=""></a><span class="bu">print</span>(</span>
+<span id="cb19-4"><a href=""></a>    Counter([node[<span class="st">"type"</span>].upper() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(texts)) </span>
+<span id="cb19-5"><a href=""></a>             <span class="cf">for</span> node <span class="kw">in</span> nodes[i]])</span>
+<span id="cb19-6"><a href=""></a>)</span>
+<span id="cb19-7"><a href=""></a><span class="bu">print</span>(</span>
+<span id="cb19-8"><a href=""></a>    Counter([edge[<span class="st">"type"</span>].upper() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(texts)) </span>
+<span id="cb19-9"><a href=""></a>             <span class="cf">for</span> edge <span class="kw">in</span> edges[i]])</span>
+<span id="cb19-10"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Counter({'PERSON': 11, 'ELEMENT': 2, 'COUNTRY': 2, 'EVENT': 2, 'CHEMIST': 2, 'AWARD': 1, 'OBJECT': 1, 'LOCATION': 1})
 Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, 'COLLABORATION': 2, 'VISITED': 1, 'ORIGIN': 1, 'EVENT': 1, 'RELATEDTO': 1, 'LOCATEDIN': 1, 'MARRIAGE': 1, 'AFFAIR': 1, 'TEACHING': 1, 'COLLABORATED_WITH': 1})</code></pre>
 </div>
 </div>
 </section>
-<section id="section-15" class="slide level3" data-auto-animate="true">
+<section id="section-14" class="slide level3" data-auto-animate="true">
 <h3 data-id="quarto-animate-title"></h3>
 <div id="771a9f60-c328-4ed8-8838-ea26b774dd2c" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:05:47.001293Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:05:47.001174Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:05:47.026694Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:05:47.025584Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:05:47.001282Z&quot;}" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="7,14"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb22-1" class="hljs-ln-code"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Literal, Optional</span>
-<span id="cb22-2" class="hljs-ln-code"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
-<span id="cb22-3" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb22-4" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Node(BaseModel):</span>
-<span id="cb22-5" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Node of the Knowledge Graph"""</span></span>
-<span id="cb22-6" class="hljs-ln-code"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span>)</span>
-<span id="cb22-7" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
-<span id="cb22-8" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
-<span id="cb22-9" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb22-10" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
-<span id="cb22-11" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
-<span id="cb22-12" class="hljs-ln-code"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
-<span id="cb22-13" class="hljs-ln-code"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
-<span id="cb22-14" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
-<span id="cb22-15" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="8,14"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb21-1" class="hljs-ln-code"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Literal, Optional</span>
+<span id="cb21-2" class="hljs-ln-code"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
+<span id="cb21-3" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb21-4" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Node(BaseModel):</span>
+<span id="cb21-5" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Node of the Knowledge Graph"""</span></span>
+<span id="cb21-6" class="hljs-ln-code"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(</span>
+<span id="cb21-7" class="hljs-ln-code"><a href=""></a>        ..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span>)</span>
+<span id="cb21-8" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
+<span id="cb21-9" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
+<span id="cb21-10" class="hljs-ln-code"><a href=""></a></span>
+<span id="cb21-11" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
+<span id="cb21-12" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
+<span id="cb21-13" class="hljs-ln-code"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
+<span id="cb21-14" class="hljs-ln-code"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
+<span id="cb21-15" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
+<span id="cb21-16" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-16" class="slide level3" data-auto-animate="true">
+<section id="section-15" class="slide level3" data-auto-animate="true">
 <h3 data-id="quarto-animate-title"></h3>
 <div id="c8f7b78e-eee1-4751-be42-a6d1ef1f24d5" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:05:47.027907Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:05:47.027538Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:05:47.045031Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:05:47.044074Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:05:47.027881Z&quot;}" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="6-8,14-16"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb23-1" class="hljs-ln-code"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Literal, Optional</span>
-<span id="cb23-2" class="hljs-ln-code"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
-<span id="cb23-3" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Node(BaseModel):</span>
-<span id="cb23-4" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Node of the Knowledge Graph"""</span></span>
-<span id="cb23-5" class="hljs-ln-code"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span>)</span>
-<span id="cb23-6" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: Literal[</span>
-<span id="cb23-7" class="hljs-ln-code"><a href=""></a>    <span class="st">"PERSON"</span>, <span class="st">"AWARD"</span>, <span class="st">"DISCOVERY"</span>, <span class="st">"LOCATION"</span>, <span class="st">"OTHER"</span></span>
-<span id="cb23-8" class="hljs-ln-code"><a href=""></a>    ] <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
-<span id="cb23-9" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
-<span id="cb23-10" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
-<span id="cb23-11" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
-<span id="cb23-12" class="hljs-ln-code"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
-<span id="cb23-13" class="hljs-ln-code"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
-<span id="cb23-14" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: Literal[</span>
-<span id="cb23-15" class="hljs-ln-code"><a href=""></a>    <span class="st">"DISCOVERED"</span>, <span class="st">"AWARDED"</span>, <span class="st">"INTERPERSONALRELATIONSHIP"</span>, <span class="st">"VISITED"</span>, <span class="st">"OTHER"</span></span>
-<span id="cb23-16" class="hljs-ln-code"><a href=""></a>    ] <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
-<span id="cb23-17" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="7-9,15-17"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb22-1" class="hljs-ln-code"><a href=""></a><span class="im">from</span> typing <span class="im">import</span> Literal, Optional</span>
+<span id="cb22-2" class="hljs-ln-code"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
+<span id="cb22-3" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Node(BaseModel):</span>
+<span id="cb22-4" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Node of the Knowledge Graph"""</span></span>
+<span id="cb22-5" class="hljs-ln-code"><a href=""></a>    <span class="bu">id</span>: <span class="bu">int</span> <span class="op">=</span> Field(</span>
+<span id="cb22-6" class="hljs-ln-code"><a href=""></a>        ..., description<span class="op">=</span><span class="st">"Unique identifier of the node starting at zero"</span>)</span>
+<span id="cb22-7" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: Literal[</span>
+<span id="cb22-8" class="hljs-ln-code"><a href=""></a>    <span class="st">"PERSON"</span>, <span class="st">"AWARD"</span>, <span class="st">"DISCOVERY"</span>, <span class="st">"LOCATION"</span>, <span class="st">"OTHER"</span></span>
+<span id="cb22-9" class="hljs-ln-code"><a href=""></a>    ] <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the node"</span>)</span>
+<span id="cb22-10" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the node"</span>)</span>
+<span id="cb22-11" class="hljs-ln-code"><a href=""></a><span class="kw">class</span> Edge(BaseModel):</span>
+<span id="cb22-12" class="hljs-ln-code"><a href=""></a>    <span class="co">"""Edge of the Knowledge Graph"""</span></span>
+<span id="cb22-13" class="hljs-ln-code"><a href=""></a>    source: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique source of the edge"</span>)</span>
+<span id="cb22-14" class="hljs-ln-code"><a href=""></a>    target: <span class="bu">int</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Unique target of the edge"</span>)</span>
+<span id="cb22-15" class="hljs-ln-code"><a href=""></a>    <span class="bu">type</span>: Literal[</span>
+<span id="cb22-16" class="hljs-ln-code"><a href=""></a>    <span class="st">"DISCOVERED"</span>, <span class="st">"AWARDED"</span>, <span class="st">"INTERPERSONALRELATIONSHIP"</span>, <span class="st">"VISITED"</span>, <span class="st">"OTHER"</span></span>
+<span id="cb22-17" class="hljs-ln-code"><a href=""></a>    ] <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Type of the edge"</span>)</span>
+<span id="cb22-18" class="hljs-ln-code"><a href=""></a>    label: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"Label of the edge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-17" class="slide level3">
+<section id="section-16" class="slide level3">
 <h3></h3>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Chunk 1</a></li><li><a href="#tabset-1-2">Chunk 2</a></li><li><a href="#tabset-1-3">Chunk 3</a></li><li><a href="#tabset-1-4">Chunk 4</a></li></ul>
@@ -971,18 +973,18 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <div id="56a9290f-805c-449b-b593-656730088867" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.004245Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.004067Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.096350Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.095483Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.004229Z&quot;}" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
-<span id="cb24-2"><a href=""></a></span>
-<span id="cb24-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
-<span id="cb24-4"><a href=""></a>i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb24-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
-<span id="cb24-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
-<span id="cb24-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
-<span id="cb24-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
-<span id="cb24-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
-<span id="cb24-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
-<span id="cb24-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
-<span id="cb24-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
+<span id="cb23-4"><a href=""></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb23-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
+<span id="cb23-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
+<span id="cb23-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
+<span id="cb23-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
+<span id="cb23-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
+<span id="cb23-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
+<span id="cb23-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
+<span id="cb23-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>When Marie Curie came to the United States for the first time, in May 1921, she had already discovered the elements radium and polonium, coined the term “radio-active” and won the Nobel Prize—twice. But the Polish-born scientist, almost pathologically shy and accustomed to spending most of her time in her Paris laboratory, was stunned by the fanfare that greeted her. In 1898 she indeed identified one of the substances and named it polonium, after her homeland. Five months later, she identified a second element, which the world came to know as radium. Curie described the elements she studied as “radio-active.”</code></pre>
@@ -1000,18 +1002,18 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <div id="0bd529d2-6210-40e1-88c4-b624674c404a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.098459Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.097393Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.170913Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.169996Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.098415Z&quot;}" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
-<span id="cb26-2"><a href=""></a></span>
-<span id="cb26-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
-<span id="cb26-4"><a href=""></a>i <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb26-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
-<span id="cb26-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
-<span id="cb26-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
-<span id="cb26-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
-<span id="cb26-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
-<span id="cb26-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
-<span id="cb26-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
-<span id="cb26-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb25-2"><a href=""></a></span>
+<span id="cb25-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
+<span id="cb25-4"><a href=""></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb25-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
+<span id="cb25-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
+<span id="cb25-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
+<span id="cb25-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
+<span id="cb25-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
+<span id="cb25-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
+<span id="cb25-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
+<span id="cb25-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>In 1894, she met Pierre Curie, a 35-year-old physicist at a French technical college who had been studying crystals and magnetism. More than a decade before, he and his brother Jacques had discovered piezoelectricity, the electric charge produced in solid materials under pressure. Pierre was taken by Marie’s uncommon intellect and drive, and he proposed to her. They were married in 1895 in a civil service attended by family and a few friends.</code></pre>
@@ -1029,18 +1031,18 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <div id="354c07da-f0d6-42b3-89c1-44173d4c4347" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.172459Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.171993Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.242863Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.241694Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.172425Z&quot;}" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
-<span id="cb28-2"><a href=""></a></span>
-<span id="cb28-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
-<span id="cb28-4"><a href=""></a>i <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb28-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
-<span id="cb28-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
-<span id="cb28-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
-<span id="cb28-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
-<span id="cb28-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
-<span id="cb28-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
-<span id="cb28-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
-<span id="cb28-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb27-2"><a href=""></a></span>
+<span id="cb27-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
+<span id="cb27-4"><a href=""></a>i <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb27-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
+<span id="cb27-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
+<span id="cb27-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
+<span id="cb27-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
+<span id="cb27-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>: <span class="co">#and nodes[i][edge["source"]]["type"]!= "OTHER" and nodes[i][edge["target"]]["type"]!= "OTHER":</span></span>
+<span id="cb27-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
+<span id="cb27-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
+<span id="cb27-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Both Curies shared the Nobel Prize in physics with Becquerel in 1903. It was the first Nobel to be awarded to a woman. In 1911, rumors spread that Curie was having an affair with the prominent physicist Paul Langevin, a man five years her junior who had been Pierre’s student and had worked closely with Albert Einstein. The front-page coverage of the scandal threatened to overshadow another news story later that year: her second Nobel Prize.</code></pre>
@@ -1058,18 +1060,18 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <div id="798bd635-5b55-4a29-a296-7d16fb7b4a37" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.244724Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.244169Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.324590Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.323434Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.244683Z&quot;}" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
-<span id="cb30-2"><a href=""></a></span>
-<span id="cb30-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
-<span id="cb30-4"><a href=""></a>i <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb30-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
-<span id="cb30-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
-<span id="cb30-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
-<span id="cb30-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
-<span id="cb30-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
-<span id="cb30-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
-<span id="cb30-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
-<span id="cb30-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="im">from</span> graphviz <span class="im">import</span> Digraph</span>
+<span id="cb29-2"><a href=""></a></span>
+<span id="cb29-3"><a href=""></a>dot <span class="op">=</span> Digraph()</span>
+<span id="cb29-4"><a href=""></a>i <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb29-5"><a href=""></a><span class="cf">for</span> node <span class="kw">in</span> nodes[i]:</span>
+<span id="cb29-6"><a href=""></a>    <span class="cf">if</span> node[<span class="st">'type'</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
+<span id="cb29-7"><a href=""></a>        dot.node(<span class="bu">str</span>(node[<span class="st">'id'</span>]), node[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span>node[<span class="st">'label'</span>], shape<span class="op">=</span><span class="st">'circle'</span>, width<span class="op">=</span><span class="st">'1'</span>, height<span class="op">=</span><span class="st">'1'</span>)</span>
+<span id="cb29-8"><a href=""></a><span class="cf">for</span> edge <span class="kw">in</span> edges[i]:</span>
+<span id="cb29-9"><a href=""></a>    <span class="cf">if</span> edge[<span class="st">"type"</span>] <span class="op">!=</span> <span class="st">"OTHER"</span>:</span>
+<span id="cb29-10"><a href=""></a>        dot.edge(<span class="bu">str</span>(edge[<span class="st">'source'</span>]), <span class="bu">str</span>(edge[<span class="st">'target'</span>]), label<span class="op">=</span>edge[<span class="st">'type'</span>]<span class="op">+</span><span class="st">"</span><span class="ch">\n</span><span class="st">"</span><span class="op">+</span> edge[<span class="st">'label'</span>])</span>
+<span id="cb29-11"><a href=""></a><span class="bu">print</span>(texts[i])</span>
+<span id="cb29-12"><a href=""></a>dot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>This one, in chemistry, was for the discovery of polonium and radium. In her acceptance speech in Stockholm, she paid tribute to her husband but also made clear that her work was independent from his, spelling out their separate contributions and describing the discoveries she had made after his death.
@@ -1087,75 +1089,66 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 </div>
 </div>
 </section>
-<section id="section-18" class="slide level3">
+<section id="section-17" class="slide level3">
 <h3></h3>
 <div id="a2a77d56-bcd5-433c-81a6-c6e6fa4f2b0f" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.326578Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.325988Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.348084Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.347231Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.326534Z&quot;}" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb32-2"><a href=""></a></span>
-<span id="cb32-3"><a href=""></a>df_nodes <span class="op">=</span> pd.DataFrame(nodes[<span class="dv">0</span>])</span>
-<span id="cb32-4"><a href=""></a>df_edges <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb32-5"><a href=""></a>    <span class="st">'source'</span>: [nodes[<span class="dv">0</span>][edge[<span class="st">'source'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
-<span id="cb32-6"><a href=""></a>    <span class="st">'target'</span>: [nodes[<span class="dv">0</span>][edge[<span class="st">'target'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
-<span id="cb32-7"><a href=""></a>    <span class="st">'type'</span>: [edge[<span class="st">'type'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
-<span id="cb32-8"><a href=""></a>    <span class="st">'label'</span>: [edge[<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]]</span>
-<span id="cb32-9"><a href=""></a>})</span>
-<span id="cb32-10"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(texts)):</span>
-<span id="cb32-11"><a href=""></a>    df_nodes_aux <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb32-12"><a href=""></a>        <span class="st">'id'</span>: [node[<span class="st">'id'</span>]<span class="op">+</span><span class="bu">len</span>(df_nodes) <span class="cf">for</span> node <span class="kw">in</span> nodes[i]],</span>
-<span id="cb32-13"><a href=""></a>        <span class="st">'label'</span>: [node[<span class="st">'label'</span>] <span class="cf">for</span> node <span class="kw">in</span> nodes[i]],</span>
-<span id="cb32-14"><a href=""></a>        <span class="st">'type'</span>: [node[<span class="st">'type'</span>] <span class="cf">for</span> node <span class="kw">in</span> nodes[i]]</span>
-<span id="cb32-15"><a href=""></a>    })</span>
-<span id="cb32-16"><a href=""></a>    df_edges_aux <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb32-17"><a href=""></a>        <span class="st">'source'</span>: [nodes[i][edge[<span class="st">'source'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
-<span id="cb32-18"><a href=""></a>        <span class="st">'target'</span>: [nodes[i][edge[<span class="st">'target'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
-<span id="cb32-19"><a href=""></a>        <span class="st">'type'</span>: [edge[<span class="st">'type'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
-<span id="cb32-20"><a href=""></a>        <span class="st">'label'</span>: [edge[<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]]</span>
-<span id="cb32-21"><a href=""></a>    })</span>
-<span id="cb32-22"><a href=""></a>    df_nodes <span class="op">=</span> pd.concat([df_nodes, df_nodes_aux])</span>
-<span id="cb32-23"><a href=""></a>    df_edges <span class="op">=</span> pd.concat([df_edges, df_edges_aux])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href=""></a></span>
+<span id="cb31-3"><a href=""></a>df_nodes <span class="op">=</span> pd.DataFrame(nodes[<span class="dv">0</span>])</span>
+<span id="cb31-4"><a href=""></a>df_edges <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb31-5"><a href=""></a>    <span class="st">'source'</span>: [nodes[<span class="dv">0</span>][edge[<span class="st">'source'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
+<span id="cb31-6"><a href=""></a>    <span class="st">'target'</span>: [nodes[<span class="dv">0</span>][edge[<span class="st">'target'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
+<span id="cb31-7"><a href=""></a>    <span class="st">'type'</span>: [edge[<span class="st">'type'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]],</span>
+<span id="cb31-8"><a href=""></a>    <span class="st">'label'</span>: [edge[<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[<span class="dv">0</span>]]</span>
+<span id="cb31-9"><a href=""></a>})</span>
+<span id="cb31-10"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="bu">len</span>(texts)):</span>
+<span id="cb31-11"><a href=""></a>    df_nodes_aux <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb31-12"><a href=""></a>        <span class="st">'id'</span>: [node[<span class="st">'id'</span>]<span class="op">+</span><span class="bu">len</span>(df_nodes) <span class="cf">for</span> node <span class="kw">in</span> nodes[i]],</span>
+<span id="cb31-13"><a href=""></a>        <span class="st">'label'</span>: [node[<span class="st">'label'</span>] <span class="cf">for</span> node <span class="kw">in</span> nodes[i]],</span>
+<span id="cb31-14"><a href=""></a>        <span class="st">'type'</span>: [node[<span class="st">'type'</span>] <span class="cf">for</span> node <span class="kw">in</span> nodes[i]]</span>
+<span id="cb31-15"><a href=""></a>    })</span>
+<span id="cb31-16"><a href=""></a>    df_edges_aux <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb31-17"><a href=""></a>        <span class="st">'source'</span>: [nodes[i][edge[<span class="st">'source'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
+<span id="cb31-18"><a href=""></a>        <span class="st">'target'</span>: [nodes[i][edge[<span class="st">'target'</span>]][<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
+<span id="cb31-19"><a href=""></a>        <span class="st">'type'</span>: [edge[<span class="st">'type'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]],</span>
+<span id="cb31-20"><a href=""></a>        <span class="st">'label'</span>: [edge[<span class="st">'label'</span>] <span class="cf">for</span> edge <span class="kw">in</span> edges[i]]</span>
+<span id="cb31-21"><a href=""></a>    })</span>
+<span id="cb31-22"><a href=""></a>    df_nodes <span class="op">=</span> pd.concat([df_nodes, df_nodes_aux])</span>
+<span id="cb31-23"><a href=""></a>    df_edges <span class="op">=</span> pd.concat([df_edges, df_edges_aux])</span>
+<span id="cb31-24"><a href=""></a></span>
+<span id="cb31-25"><a href=""></a>df_nodes<span class="op">=</span>df_nodes[df_nodes[<span class="st">"type"</span>]<span class="op">!=</span><span class="st">"OTHER"</span>].drop_duplicates(subset<span class="op">=</span><span class="st">"label"</span>)</span>
+<span id="cb31-26"><a href=""></a>df_edges<span class="op">=</span>df_edges[df_edges[<span class="st">"type"</span>]<span class="op">!=</span><span class="st">"OTHER"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-19" class="slide level3">
-<h3></h3>
-<div id="01f3199a-fc48-48bb-a71f-c38933e96985" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.349479Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.349043Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.361654Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.360930Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.349447Z&quot;}" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>df_nodes<span class="op">=</span>df_nodes[df_nodes[<span class="st">"type"</span>]<span class="op">!=</span><span class="st">"OTHER"</span>].drop_duplicates(subset<span class="op">=</span><span class="st">"label"</span>)</span>
-<span id="cb33-2"><a href=""></a>df_edges<span class="op">=</span>df_edges[df_edges[<span class="st">"type"</span>]<span class="op">!=</span><span class="st">"OTHER"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="insert-nodes-to-graph-db" class="slide level3">
-<h3>Insert nodes to graph db</h3>
-<div id="82501589-132f-4373-b884-3b816f425a3d" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.363218Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.362734Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.387068Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.385872Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.363182Z&quot;}" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>df_nodes_person <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"PERSON"</span>][[<span class="st">"label"</span>]]</span>
-<span id="cb34-2"><a href=""></a>df_nodes_award <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"AWARD"</span>][[<span class="st">"label"</span>]]</span>
-<span id="cb34-3"><a href=""></a>df_nodes_discovery <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"DISCOVERY"</span>][[<span class="st">"label"</span>]]</span>
-<span id="cb34-4"><a href=""></a>df_nodes_location <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"LOCATION"</span>][[<span class="st">"label"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="insert-nodes-to-graph-db-1" class="slide level3">
-<h3>Insert nodes to graph db</h3>
+<section id="insert-nodes-to-the-graph-db" class="slide level3">
+<h3>Insert nodes to the graph db</h3>
 <div id="2088d633-7138-4d24-9f78-7226102630a4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.389002Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.388426Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.656978Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.655831Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.388960Z&quot;}" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a><span class="im">import</span> kuzu</span>
-<span id="cb35-2"><a href=""></a></span>
-<span id="cb35-3"><a href=""></a>db <span class="op">=</span> kuzu.Database()</span>
-<span id="cb35-4"><a href=""></a>conn <span class="op">=</span> kuzu.Connection(db)</span>
-<span id="cb35-5"><a href=""></a><span class="co"># create schema</span></span>
-<span id="cb35-6"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Person(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
-<span id="cb35-7"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Award(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
-<span id="cb35-8"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Discovery(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
-<span id="cb35-9"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Location(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
-<span id="cb35-10"><a href=""></a><span class="co"># copy from dataframes</span></span>
-<span id="cb35-11"><a href=""></a>conn.execute(<span class="st">"COPY Person FROM df_nodes_person"</span>)<span class="op">;</span></span>
-<span id="cb35-12"><a href=""></a>conn.execute(<span class="st">"COPY Award FROM df_nodes_award"</span>)<span class="op">;</span></span>
-<span id="cb35-13"><a href=""></a>conn.execute(<span class="st">"COPY Discovery FROM df_nodes_discovery"</span>)<span class="op">;</span></span>
-<span id="cb35-14"><a href=""></a>conn.execute(<span class="st">"COPY Location FROM df_nodes_location"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">import</span> kuzu</span>
+<span id="cb32-2"><a href=""></a></span>
+<span id="cb32-3"><a href=""></a>db <span class="op">=</span> kuzu.Database()</span>
+<span id="cb32-4"><a href=""></a>conn <span class="op">=</span> kuzu.Connection(db)</span>
+<span id="cb32-5"><a href=""></a><span class="co"># create schema</span></span>
+<span id="cb32-6"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Person(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
+<span id="cb32-7"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Award(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
+<span id="cb32-8"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Discovery(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
+<span id="cb32-9"><a href=""></a>conn.execute(<span class="st">"CREATE NODE TABLE Location(name STRING, PRIMARY KEY (name))"</span>)<span class="op">;</span></span>
+<span id="cb32-10"><a href=""></a><span class="co"># copy from dataframes</span></span>
+<span id="cb32-11"><a href=""></a>df_nodes_person <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"PERSON"</span>][[<span class="st">"label"</span>]]</span>
+<span id="cb32-12"><a href=""></a>df_nodes_award <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"AWARD"</span>][[<span class="st">"label"</span>]]</span>
+<span id="cb32-13"><a href=""></a>df_nodes_discovery <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"DISCOVERY"</span>][[<span class="st">"label"</span>]]</span>
+<span id="cb32-14"><a href=""></a>df_nodes_location <span class="op">=</span> df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> <span class="st">"LOCATION"</span>][[<span class="st">"label"</span>]]</span>
+<span id="cb32-15"><a href=""></a>conn.execute(<span class="st">"COPY Person FROM df_nodes_person"</span>)<span class="op">;</span></span>
+<span id="cb32-16"><a href=""></a>conn.execute(<span class="st">"COPY Award FROM df_nodes_award"</span>)<span class="op">;</span></span>
+<span id="cb32-17"><a href=""></a>conn.execute(<span class="st">"COPY Discovery FROM df_nodes_discovery"</span>)<span class="op">;</span></span>
+<span id="cb32-18"><a href=""></a>conn.execute(<span class="st">"COPY Location FROM df_nodes_location"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="test-that-nodes-are-in-the-graph-db" class="slide level3">
-<h3>Test that nodes are in the graph db</h3>
+<section id="check-for-nodes" class="slide level3">
+<h3>Check for nodes</h3>
 <div id="e358d2df-542b-4010-87aa-b67185efee89" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.658947Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.658468Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.680420Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.679900Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.658900Z&quot;}" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>result <span class="op">=</span> conn.execute(<span class="st">"MATCH (person:Person) RETURN person.name;"</span>)</span>
-<span id="cb36-2"><a href=""></a><span class="cf">while</span> result.has_next():</span>
-<span id="cb36-3"><a href=""></a>    <span class="bu">print</span>(result.get_next())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>result <span class="op">=</span> conn.execute(<span class="st">"MATCH (person:Person) RETURN person.name;"</span>)</span>
+<span id="cb33-2"><a href=""></a><span class="cf">while</span> result.has_next():</span>
+<span id="cb33-3"><a href=""></a>    <span class="bu">print</span>(result.get_next())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Marie Curie']
 ['Pierre Curie']
@@ -1166,40 +1159,32 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 </section>
 <section id="insert-edges-to-the-graph-db" class="slide level3">
 <h3>Insert edges to the graph db</h3>
-<div id="0457b7c3-c2e6-430b-963a-81475b1f79b4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.681240Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.681033Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.702940Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.702590Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.681220Z&quot;}" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="kw">def</span> my_func(edge_type: <span class="bu">str</span>, source: <span class="bu">str</span>, target: <span class="bu">str</span>):</span>
-<span id="cb38-2"><a href=""></a>    mask1 <span class="op">=</span> [a <span class="kw">in</span> <span class="bu">list</span>(df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> source][<span class="st">'label'</span>]) <span class="cf">for</span> a <span class="kw">in</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][<span class="st">"source"</span>]]</span>
-<span id="cb38-3"><a href=""></a>    mask2 <span class="op">=</span> [a <span class="kw">in</span> <span class="bu">list</span>(df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> target][<span class="st">'label'</span>]) <span class="cf">for</span> a <span class="kw">in</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][<span class="st">"target"</span>]]</span>
-<span id="cb38-4"><a href=""></a>    mask <span class="op">=</span> [a <span class="op">&amp;</span> b <span class="cf">for</span> a,b <span class="kw">in</span> <span class="bu">zip</span>(mask1,mask2)]</span>
-<span id="cb38-5"><a href=""></a>    <span class="cf">return</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][mask]</span>
-<span id="cb38-6"><a href=""></a></span>
-<span id="cb38-7"><a href=""></a>df_edges_awarded <span class="op">=</span> my_func(<span class="st">"AWARDED"</span>, <span class="st">"PERSON"</span>, <span class="st">"AWARD"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
-<span id="cb38-8"><a href=""></a>df_edges_discovered <span class="op">=</span> my_func(<span class="st">"DISCOVERED"</span>, <span class="st">"PERSON"</span>, <span class="st">"DISCOVERY"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
-<span id="cb38-9"><a href=""></a>df_edges_visited <span class="op">=</span> my_func(<span class="st">"VISITED"</span>, <span class="st">"PERSON"</span>, <span class="st">"LOCATION"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
-<span id="cb38-10"><a href=""></a>df_edges_interpersonal_relationship <span class="op">=</span> my_func(<span class="st">"INTERPERSONALRELATIONSHIP"</span>, <span class="st">"PERSON"</span>, <span class="st">"PERSON"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="insert-edges-to-the-graph-db-1" class="slide level3">
-<h3>Insert edges to the graph db</h3>
 <div id="18916909-a458-4daa-818a-01c4f0a23bbf" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.703509Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.703370Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.732060Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.731244Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.703496Z&quot;}" data-scrolled="true" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="co"># create schema</span></span>
-<span id="cb39-2"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Awarded(FROM Person TO Award)"</span>)<span class="op">;</span></span>
-<span id="cb39-3"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Discovered(FROM Person TO Discovery)"</span>)<span class="op">;</span></span>
-<span id="cb39-4"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Interpersonal_Relationship(FROM Person TO Person)"</span>)<span class="op">;</span></span>
-<span id="cb39-5"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Visited(FROM Person TO Location)"</span>)<span class="op">;</span></span>
-<span id="cb39-6"><a href=""></a><span class="co"># copy from dataframe</span></span>
-<span id="cb39-7"><a href=""></a>conn.execute(<span class="st">"COPY Discovered FROM df_edges_discovered"</span>)<span class="op">;</span></span>
-<span id="cb39-8"><a href=""></a>conn.execute(<span class="st">"COPY Awarded FROM df_edges_awarded"</span>)<span class="op">;</span></span>
-<span id="cb39-9"><a href=""></a>conn.execute(<span class="st">"COPY Visited FROM df_edges_visited"</span>)<span class="op">;</span></span>
-<span id="cb39-10"><a href=""></a>conn.execute(<span class="st">"COPY Interpersonal_Relationship FROM df_edges_interpersonal_relationship"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Awarded(FROM Person TO Award)"</span>)<span class="op">;</span> <span class="co"># create schema</span></span>
+<span id="cb35-2"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Discovered(FROM Person TO Discovery)"</span>)<span class="op">;</span></span>
+<span id="cb35-3"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Interpersonal_Relationship(FROM Person TO Person)"</span>)<span class="op">;</span></span>
+<span id="cb35-4"><a href=""></a>conn.execute(<span class="st">"CREATE REL TABLE Visited(FROM Person TO Location)"</span>)<span class="op">;</span></span>
+<span id="cb35-5"><a href=""></a><span class="kw">def</span> my_func(edge_type: <span class="bu">str</span>, source: <span class="bu">str</span>, target: <span class="bu">str</span>):</span>
+<span id="cb35-6"><a href=""></a>    mask1 <span class="op">=</span> [a <span class="kw">in</span> <span class="bu">list</span>(df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> source][<span class="st">'label'</span>]) <span class="cf">for</span> a <span class="kw">in</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][<span class="st">"source"</span>]]</span>
+<span id="cb35-7"><a href=""></a>    mask2 <span class="op">=</span> [a <span class="kw">in</span> <span class="bu">list</span>(df_nodes[df_nodes[<span class="st">"type"</span>] <span class="op">==</span> target][<span class="st">'label'</span>]) <span class="cf">for</span> a <span class="kw">in</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][<span class="st">"target"</span>]]</span>
+<span id="cb35-8"><a href=""></a>    mask <span class="op">=</span> [a <span class="op">&amp;</span> b <span class="cf">for</span> a,b <span class="kw">in</span> <span class="bu">zip</span>(mask1,mask2)]</span>
+<span id="cb35-9"><a href=""></a>    <span class="cf">return</span> df_edges[df_edges[<span class="st">"type"</span>] <span class="op">==</span> edge_type][mask]</span>
+<span id="cb35-10"><a href=""></a>df_edges_awarded <span class="op">=</span> my_func(<span class="st">"AWARDED"</span>, <span class="st">"PERSON"</span>, <span class="st">"AWARD"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
+<span id="cb35-11"><a href=""></a>df_edges_discovered <span class="op">=</span> my_func(<span class="st">"DISCOVERED"</span>, <span class="st">"PERSON"</span>, <span class="st">"DISCOVERY"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
+<span id="cb35-12"><a href=""></a>df_edges_visited <span class="op">=</span> my_func(<span class="st">"VISITED"</span>, <span class="st">"PERSON"</span>, <span class="st">"LOCATION"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
+<span id="cb35-13"><a href=""></a>df_edges_interpersonal_relationship <span class="op">=</span> my_func(<span class="st">"INTERPERSONALRELATIONSHIP"</span>, <span class="st">"PERSON"</span>, <span class="st">"PERSON"</span>)[[<span class="st">"source"</span>, <span class="st">"target"</span>]]</span>
+<span id="cb35-14"><a href=""></a>conn.execute(<span class="st">"COPY Discovered FROM df_edges_discovered"</span>)<span class="op">;</span> <span class="co"># copy from dataframes</span></span>
+<span id="cb35-15"><a href=""></a>conn.execute(<span class="st">"COPY Awarded FROM df_edges_awarded"</span>)<span class="op">;</span></span>
+<span id="cb35-16"><a href=""></a>conn.execute(<span class="st">"COPY Visited FROM df_edges_visited"</span>)<span class="op">;</span></span>
+<span id="cb35-17"><a href=""></a>conn.execute(<span class="st">"COPY Interpersonal_Relationship FROM df_edges_interpersonal_relationship"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="test-that-edges-are-in-the-graph-db" class="slide level3">
-<h3>Test that edges are in the graph db</h3>
+<section id="check-for-edges" class="slide level3">
+<h3>Check for edges</h3>
 <div id="92ac5a3f-d0ee-456c-90de-65e75a9c2214" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.733756Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.733189Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.747259Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.746192Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.733691Z&quot;}" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>result <span class="op">=</span> conn.execute(<span class="st">"MATCH (a)-[:DISCOVERED]-&gt;(c) RETURN a.name, c.name;"</span>)</span>
-<span id="cb40-2"><a href=""></a><span class="cf">while</span> result.has_next():</span>
-<span id="cb40-3"><a href=""></a>    <span class="bu">print</span>(result.get_next())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>result <span class="op">=</span> conn.execute(<span class="st">"MATCH (a)-[:DISCOVERED]-&gt;(c) RETURN a.name, c.name;"</span>)</span>
+<span id="cb36-2"><a href=""></a><span class="cf">while</span> result.has_next():</span>
+<span id="cb36-3"><a href=""></a>    <span class="bu">print</span>(result.get_next())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Marie Curie', 'Polonium']
 ['Marie Curie', 'Radium']
@@ -1209,9 +1194,17 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 </section>
 </section>
 <section>
-<section id="kg-based-agent" class="title-slide slide level1 center">
-<h1>KG-based Agent</h1>
+<section id="kg-based-agents" class="title-slide slide level1 center">
+<h1>KG-based Agents</h1>
 
+</section>
+<section id="section-18" class="slide level3 nostretch">
+<h3></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./assets/KG-Agent.jpg" title="Knowledge Graph Based Agent" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </section>
 <section id="tools" class="title-slide slide level2 center">
 <h2>Tools</h2>
@@ -1220,36 +1213,36 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <section id="tool-query-checker" class="slide level3">
 <h3>Tool: Query Checker</h3>
 <div id="aaa6d802-dfc8-42ea-9d16-27a7dd737360" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.748998Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.748494Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:48.755146Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:48.753964Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.748955Z&quot;}" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a><span class="kw">def</span> build_kuzu_query_checker_prompt(cypher_query):</span>
-<span id="cb42-2"><a href=""></a>    <span class="cf">return</span> (</span>
-<span id="cb42-3"><a href=""></a>    <span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>cypher_query<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span></span>
-<span id="cb42-4"><a href=""></a>    <span class="st">"Double check the Kùzu dialect of Cypher for the query above "</span></span>
-<span id="cb42-5"><a href=""></a>    <span class="st">"for common mistakes, including:</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb42-6"><a href=""></a>    <span class="st">"- Using the correct number of arguments for functions</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb42-7"><a href=""></a>    <span class="st">"- Casting to the correct data type</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb42-8"><a href=""></a>    <span class="st">"- Do not omit the relationship pattern.</span><span class="ch">\n</span><span class="st">"</span> </span>
-<span id="cb42-9"><a href=""></a>    <span class="st">"- Always use `()-[]-&gt;()` instead of `()-&gt;()`.</span><span class="ch">\n\n</span><span class="st">"</span></span>
-<span id="cb42-10"><a href=""></a>    <span class="st">"If there are any of the above mistakes, rewrite the query. "</span></span>
-<span id="cb42-11"><a href=""></a>    <span class="st">"If there are no mistakes, just reproduce the original query.</span><span class="ch">\n\n</span><span class="st">"</span></span>
-<span id="cb42-12"><a href=""></a>    <span class="st">"Output the final Kùzu Cypher query only.</span><span class="ch">\n\n</span><span class="st">"</span></span>
-<span id="cb42-13"><a href=""></a>    <span class="st">"Kùzu Cypher Query: "</span></span>
-<span id="cb42-14"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a><span class="kw">def</span> build_kuzu_query_checker_prompt(cypher_query):</span>
+<span id="cb38-2"><a href=""></a>    <span class="cf">return</span> (</span>
+<span id="cb38-3"><a href=""></a>    <span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>cypher_query<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb38-4"><a href=""></a>    <span class="st">"Double check the Kùzu dialect of Cypher for the query above "</span></span>
+<span id="cb38-5"><a href=""></a>    <span class="st">"for common mistakes, including:</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb38-6"><a href=""></a>    <span class="st">"- Using the correct number of arguments for functions</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb38-7"><a href=""></a>    <span class="st">"- Casting to the correct data type</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb38-8"><a href=""></a>    <span class="st">"- Do not omit the relationship pattern.</span><span class="ch">\n</span><span class="st">"</span> </span>
+<span id="cb38-9"><a href=""></a>    <span class="st">"- Always use `()-[]-&gt;()` instead of `()-&gt;()`.</span><span class="ch">\n\n</span><span class="st">"</span></span>
+<span id="cb38-10"><a href=""></a>    <span class="st">"If there are any of the above mistakes, rewrite the query. "</span></span>
+<span id="cb38-11"><a href=""></a>    <span class="st">"If there are no mistakes, just reproduce the original query.</span><span class="ch">\n\n</span><span class="st">"</span></span>
+<span id="cb38-12"><a href=""></a>    <span class="st">"Output the final Kùzu Cypher query only.</span><span class="ch">\n\n</span><span class="st">"</span></span>
+<span id="cb38-13"><a href=""></a>    <span class="st">"Kùzu Cypher Query: "</span></span>
+<span id="cb38-14"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tool-query-checker-1" class="slide level3">
 <h3>Tool: Query Checker</h3>
 <div id="43c3527a-7845-4ed6-9667-6429bf367653" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:48.756867Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:48.756338Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:49.340249Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:49.339463Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:48.756824Z&quot;}" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a><span class="kw">def</span> query_checker_tool(cypher_query):</span>
-<span id="cb43-2"><a href=""></a>    user_prompt <span class="op">=</span> build_kuzu_query_checker_prompt(cypher_query)</span>
-<span id="cb43-3"><a href=""></a>    response <span class="op">=</span> llm.create_chat_completion(</span>
-<span id="cb43-4"><a href=""></a>        messages<span class="op">=</span>[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: user_prompt}]</span>
-<span id="cb43-5"><a href=""></a>    )</span>
-<span id="cb43-6"><a href=""></a>    <span class="cf">return</span> response[<span class="st">"choices"</span>][<span class="dv">0</span>][<span class="st">"message"</span>][<span class="st">"content"</span>]</span>
-<span id="cb43-7"><a href=""></a></span>
-<span id="cb43-8"><a href=""></a></span>
-<span id="cb43-9"><a href=""></a>query_checker_tool(</span>
-<span id="cb43-10"><a href=""></a><span class="st">"MATCH (p:Person)-[:Discovered]-&lt;(:Discovery {name: 'Polonium'})</span><span class="ch">\n</span><span class="st">RETURN *"</span></span>
-<span id="cb43-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a><span class="kw">def</span> query_checker_tool(cypher_query):</span>
+<span id="cb39-2"><a href=""></a>    user_prompt <span class="op">=</span> build_kuzu_query_checker_prompt(cypher_query)</span>
+<span id="cb39-3"><a href=""></a>    response <span class="op">=</span> llm.create_chat_completion(</span>
+<span id="cb39-4"><a href=""></a>        messages<span class="op">=</span>[{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: user_prompt}]</span>
+<span id="cb39-5"><a href=""></a>    )</span>
+<span id="cb39-6"><a href=""></a>    <span class="cf">return</span> response[<span class="st">"choices"</span>][<span class="dv">0</span>][<span class="st">"message"</span>][<span class="st">"content"</span>]</span>
+<span id="cb39-7"><a href=""></a></span>
+<span id="cb39-8"><a href=""></a></span>
+<span id="cb39-9"><a href=""></a>query_checker_tool(</span>
+<span id="cb39-10"><a href=""></a><span class="st">"MATCH (p:Person)-[:Discovered]-&lt;(:Discovery {name: 'Polonium'})</span><span class="ch">\n</span><span class="st">RETURN *"</span></span>
+<span id="cb39-11"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>"MATCH (p:Person)-[:Discovered]-&gt;(d:Discovery {name: 'Polonium'})\nRETURN *"</code></pre>
 </div>
@@ -1258,10 +1251,10 @@ Counter({'DISCOVERED': 8, 'AWARDED': 3, 'MET': 2, 'OCCURREDIN': 2, 'AWARD': 2, '
 <section id="tool-query-generator-executor" class="slide level3">
 <h3>Tool: Query Generator + Executor</h3>
 <div id="de649793-9675-4092-8822-69ed8e7ff7c6" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:50.070412Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:50.070269Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:50.097926Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:50.096768Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:50.070398Z&quot;}" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a><span class="im">from</span> langchain_community.graphs <span class="im">import</span> KuzuGraph</span>
-<span id="cb45-2"><a href=""></a></span>
-<span id="cb45-3"><a href=""></a>graph_db_schema <span class="op">=</span> KuzuGraph(db).get_schema</span>
-<span id="cb45-4"><a href=""></a><span class="bu">print</span>(graph_db_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a><span class="im">from</span> langchain_community.graphs <span class="im">import</span> KuzuGraph</span>
+<span id="cb41-2"><a href=""></a></span>
+<span id="cb41-3"><a href=""></a>graph_db_schema <span class="op">=</span> KuzuGraph(db).get_schema</span>
+<span id="cb41-4"><a href=""></a><span class="bu">print</span>(graph_db_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Node properties: [{'properties': [('name', 'STRING')], 'label': 'Person'}, {'properties': [('name', 'STRING')], 'label': 'Discovery'}, {'properties': [('name', 'STRING')], 'label': 'Award'}, {'properties': [('name', 'STRING')], 'label': 'Location'}]
 Relationships properties: [{'properties': [], 'label': 'Awarded'}, {'properties': [], 'label': 'Discovered'}, {'properties': [], 'label': 'Interpersonal_Relationship'}, {'properties': [], 'label': 'Visited'}]
@@ -1273,241 +1266,239 @@ Relationships: ['(:Person)-[:Awarded]-&gt;(:Award)', '(:Person)-[:Discovered]-&g
 <section id="tool-query-generator-executor-1" class="slide level3">
 <h3>Tool: Query Generator + Executor</h3>
 <div id="72cf56ea-4acb-4828-ad64-054eed28c01e" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:50.099808Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:50.099265Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:50.106216Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:50.105004Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:50.099764Z&quot;}" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="kw">def</span> build_kuzu_prompt(query, graph_db_schema<span class="op">=</span>graph_db_schema):</span>
-<span id="cb47-2"><a href=""></a>    <span class="cf">return</span> <span class="st">"""Task: Generate Kùzu Cypher statement to query a graph database.</span></span>
-<span id="cb47-3"><a href=""></a></span>
-<span id="cb47-4"><a href=""></a><span class="st">Instructions:</span></span>
-<span id="cb47-5"><a href=""></a><span class="st">Generate the Kùzu dialect of Cypher with the following rules in mind:</span></span>
-<span id="cb47-6"><a href=""></a><span class="st">1. Do not omit the relationship pattern. Always use `()-[]-&gt;()` instead of `()-&gt;()`.</span></span>
-<span id="cb47-7"><a href=""></a><span class="st">2. Do not include triple backticks ``` in your response. Return only Cypher.</span></span>
-<span id="cb47-8"><a href=""></a><span class="st">3. Do not return any notes or comments in your response.</span></span>
-<span id="cb47-9"><a href=""></a></span>
-<span id="cb47-10"><a href=""></a><span class="st">Use only the provided relationship types and properties in the schema.</span></span>
-<span id="cb47-11"><a href=""></a><span class="st">Do not use any other relationship types or properties that are not provided.</span></span>
-<span id="cb47-12"><a href=""></a><span class="st">Schema:</span><span class="ch">\n</span><span class="st">"""</span> <span class="op">+</span> graph_db_schema <span class="op">+</span> <span class="st">"""</span></span>
-<span id="cb47-13"><a href=""></a><span class="ch">\n</span><span class="st">Example:</span></span>
-<span id="cb47-14"><a href=""></a><span class="st">The question is:</span><span class="ch">\n</span><span class="st">"Which songs does the load album have?"</span></span>
-<span id="cb47-15"><a href=""></a><span class="st">MATCH (a:ALBUM {name: 'Load'})&lt;-[:IN_ALBUM]-(s:SONG) RETURN s.name</span></span>
-<span id="cb47-16"><a href=""></a><span class="st">Note: Do not include any explanations or apologies in your responses.</span></span>
-<span id="cb47-17"><a href=""></a><span class="st">Do not respond to any questions that might ask anything else than for you to construct a Cypher statement.</span></span>
-<span id="cb47-18"><a href=""></a><span class="st">Do not include any text except the generated Cypher statement.</span></span>
-<span id="cb47-19"><a href=""></a></span>
-<span id="cb47-20"><a href=""></a><span class="st">The question is:</span><span class="ch">\n</span><span class="st">"""</span> <span class="op">+</span> query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a><span class="kw">def</span> build_kuzu_prompt(query, graph_db_schema<span class="op">=</span>graph_db_schema):</span>
+<span id="cb43-2"><a href=""></a>    <span class="cf">return</span> <span class="st">"""Task: Generate Kùzu Cypher statement to query a graph database.</span></span>
+<span id="cb43-3"><a href=""></a></span>
+<span id="cb43-4"><a href=""></a><span class="st">Instructions:</span></span>
+<span id="cb43-5"><a href=""></a><span class="st">Generate the Kùzu dialect of Cypher with the following rules in mind:</span></span>
+<span id="cb43-6"><a href=""></a><span class="st">1. Do not omit the relationship pattern. Always use `()-[]-&gt;()` instead of `()-&gt;()`.</span></span>
+<span id="cb43-7"><a href=""></a><span class="st">2. Do not include triple backticks ``` in your response. Return only Cypher.</span></span>
+<span id="cb43-8"><a href=""></a><span class="st">3. Do not return any notes or comments in your response.</span></span>
+<span id="cb43-9"><a href=""></a></span>
+<span id="cb43-10"><a href=""></a><span class="st">Use only the provided relationship types and properties in the schema.</span></span>
+<span id="cb43-11"><a href=""></a><span class="st">Do not use any other relationship types or properties that are not provided.</span></span>
+<span id="cb43-12"><a href=""></a><span class="st">Schema:</span><span class="ch">\n</span><span class="st">"""</span> <span class="op">+</span> graph_db_schema <span class="op">+</span> <span class="st">"""</span></span>
+<span id="cb43-13"><a href=""></a><span class="ch">\n</span><span class="st">Example:</span></span>
+<span id="cb43-14"><a href=""></a><span class="st">The question is:</span><span class="ch">\n</span><span class="st">"Which songs does the load album have?"</span></span>
+<span id="cb43-15"><a href=""></a><span class="st">MATCH (a:ALBUM {name: 'Load'})&lt;-[:IN_ALBUM]-(s:SONG) RETURN s.name</span></span>
+<span id="cb43-16"><a href=""></a><span class="st">Note: Do not include any explanations or apologies in your responses.</span></span>
+<span id="cb43-17"><a href=""></a><span class="st">Do not respond to any questions that might ask anything else than for you to construct a Cypher statement.</span></span>
+<span id="cb43-18"><a href=""></a><span class="st">Do not include any text except the generated Cypher statement.</span></span>
+<span id="cb43-19"><a href=""></a></span>
+<span id="cb43-20"><a href=""></a><span class="st">The question is:</span><span class="ch">\n</span><span class="st">"""</span> <span class="op">+</span> query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="tool-query-generator-executor-2" class="slide level3">
 <h3>Tool: Query Generator + Executor</h3>
-<div id="f1d8b119-427b-4807-99a4-f7b92ee7e4e1" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:50.107894Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:50.107369Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:50.118714Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:50.117501Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:50.107851Z&quot;}" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="kw">def</span> query_generator_tool(query):</span>
-<span id="cb48-2"><a href=""></a>    user_prompt <span class="op">=</span> build_kuzu_prompt(query)</span>
-<span id="cb48-3"><a href=""></a>    output <span class="op">=</span> llm.create_chat_completion(</span>
-<span id="cb48-4"><a href=""></a>            messages <span class="op">=</span> [</span>
-<span id="cb48-5"><a href=""></a>                {</span>
-<span id="cb48-6"><a href=""></a>                    <span class="st">"role"</span>: <span class="st">"user"</span>,</span>
-<span id="cb48-7"><a href=""></a>                    <span class="st">"content"</span>: user_prompt</span>
-<span id="cb48-8"><a href=""></a>                }</span>
-<span id="cb48-9"><a href=""></a>            ]</span>
-<span id="cb48-10"><a href=""></a>        )</span>
-<span id="cb48-11"><a href=""></a>    cypher_query <span class="op">=</span> output[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>]</span>
-<span id="cb48-12"><a href=""></a>    cypher_query <span class="op">=</span> query_checker_tool(cypher_query)</span>
-<span id="cb48-13"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[33m Cypher query: </span><span class="sc">{</span>cypher_query<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb48-14"><a href=""></a>    response <span class="op">=</span> conn.execute(</span>
-<span id="cb48-15"><a href=""></a>            <span class="ss">f"""</span></span>
-<span id="cb48-16"><a href=""></a><span class="ss">            </span><span class="sc">{</span>cypher_query<span class="sc">}</span></span>
-<span id="cb48-17"><a href=""></a><span class="ss">            """</span></span>
-<span id="cb48-18"><a href=""></a>        )<span class="op">;</span></span>
-<span id="cb48-19"><a href=""></a>    df <span class="op">=</span> response.get_as_pl()</span>
-<span id="cb48-20"><a href=""></a>    col_name <span class="op">=</span> df.columns[<span class="dv">0</span>]</span>
-<span id="cb48-21"><a href=""></a>    _values <span class="op">=</span> df[col_name].to_list()</span>
-<span id="cb48-22"><a href=""></a>    <span class="cf">return</span> <span class="ss">f"[</span><span class="sc">{</span>col_name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>_values<span class="sc">}</span><span class="ss">]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f1d8b119-427b-4807-99a4-f7b92ee7e4e1" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:07:10.755236Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:07:10.754685Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:07:12.296382Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:07:12.295737Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:07:10.755189Z&quot;}" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a><span class="kw">def</span> query_generator_tool(query):</span>
+<span id="cb44-2"><a href=""></a>    user_prompt <span class="op">=</span> build_kuzu_prompt(query)</span>
+<span id="cb44-3"><a href=""></a>    output <span class="op">=</span> llm.create_chat_completion(</span>
+<span id="cb44-4"><a href=""></a>        messages <span class="op">=</span> [{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: user_prompt}]</span>
+<span id="cb44-5"><a href=""></a>    )</span>
+<span id="cb44-6"><a href=""></a>    cypher_query <span class="op">=</span> output[<span class="st">'choices'</span>][<span class="dv">0</span>][<span class="st">'message'</span>][<span class="st">'content'</span>]</span>
+<span id="cb44-7"><a href=""></a>    cypher_query <span class="op">=</span> query_checker_tool(cypher_query)</span>
+<span id="cb44-8"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[33m Cypher query: </span><span class="sc">{</span>cypher_query<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb44-9"><a href=""></a>    response <span class="op">=</span> conn.execute(<span class="ss">f"</span><span class="sc">{</span>cypher_query<span class="sc">}</span><span class="ss">"</span>)<span class="op">;</span></span>
+<span id="cb44-10"><a href=""></a>    df <span class="op">=</span> response.get_as_pl()</span>
+<span id="cb44-11"><a href=""></a>    col_name <span class="op">=</span> df.columns[<span class="dv">0</span>]</span>
+<span id="cb44-12"><a href=""></a>    _values <span class="op">=</span> df[col_name].to_list()</span>
+<span id="cb44-13"><a href=""></a>    <span class="cf">return</span> <span class="ss">f"[</span><span class="sc">{</span>col_name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>_values<span class="sc">}</span><span class="ss">]"</span></span>
+<span id="cb44-14"><a href=""></a>query_generator_tool(<span class="st">"What discovery is Marie Curie famous for?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Cypher query: MATCH (p:Person {name: 'Marie Curie'})-[:Discovered]-&gt;(d:Discovery) RETURN d.name </code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>"[d.name: ['Radium', 'Polonium']]"</code></pre>
+</div>
 </div>
 </section>
 <section id="tool-conversational-response" class="slide level3">
 <h3>Tool: Conversational Response</h3>
 <div id="90248226-d0af-4e29-80ea-5094bcd973cb" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.750155Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.749627Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.754646Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.753716Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.750115Z&quot;}" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="kw">def</span> conversational_response(text):</span>
-<span id="cb49-2"><a href=""></a>    <span class="cf">return</span> text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a><span class="kw">def</span> conversational_response(text):</span>
+<span id="cb47-2"><a href=""></a>    <span class="cf">return</span> text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 
 <section id="react-agent" class="title-slide slide level2 center">
 <h2>ReAct agent</h2>
 <div id="c63a7f07-211b-485c-9bef-ae4b463dd781" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.782927Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.782426Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.795712Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.794580Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.782890Z&quot;}" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
-<span id="cb50-2"><a href=""></a></span>
-<span id="cb50-3"><a href=""></a></span>
-<span id="cb50-4"><a href=""></a><span class="kw">class</span> Reason_and_Act(BaseModel):</span>
-<span id="cb50-5"><a href=""></a>    Scratchpad: <span class="bu">str</span> <span class="op">=</span> Field(</span>
-<span id="cb50-6"><a href=""></a>        ...,</span>
-<span id="cb50-7"><a href=""></a>        description<span class="op">=</span><span class="st">"Information from the Observation useful to answer the question"</span>,</span>
-<span id="cb50-8"><a href=""></a>    )</span>
-<span id="cb50-9"><a href=""></a>    Thought: <span class="bu">str</span> <span class="op">=</span> Field(</span>
-<span id="cb50-10"><a href=""></a>        ...,</span>
-<span id="cb50-11"><a href=""></a>        description<span class="op">=</span><span class="st">"It describes your thoughts about the question you have been asked"</span>,</span>
-<span id="cb50-12"><a href=""></a>    )</span>
-<span id="cb50-13"><a href=""></a>    Action: Literal[<span class="st">"conversational_response"</span>, <span class="st">"query_generator"</span>, <span class="st">"query_checker"</span>] <span class="op">=</span> (</span>
-<span id="cb50-14"><a href=""></a>        Field(..., description<span class="op">=</span><span class="st">"The action to take"</span>)</span>
-<span id="cb50-15"><a href=""></a>    )</span>
-<span id="cb50-16"><a href=""></a>    Action_Input: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"The arguments of the Action."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel, Field</span>
+<span id="cb48-2"><a href=""></a></span>
+<span id="cb48-3"><a href=""></a></span>
+<span id="cb48-4"><a href=""></a><span class="kw">class</span> Reason_and_Act(BaseModel):</span>
+<span id="cb48-5"><a href=""></a>    Scratchpad: <span class="bu">str</span> <span class="op">=</span> Field(</span>
+<span id="cb48-6"><a href=""></a>        ...,</span>
+<span id="cb48-7"><a href=""></a>        description<span class="op">=</span><span class="st">"Information from the Observation useful to answer the question"</span>,</span>
+<span id="cb48-8"><a href=""></a>    )</span>
+<span id="cb48-9"><a href=""></a>    Thought: <span class="bu">str</span> <span class="op">=</span> Field(</span>
+<span id="cb48-10"><a href=""></a>        ...,</span>
+<span id="cb48-11"><a href=""></a>        description<span class="op">=</span><span class="st">"It describes your thoughts about the question you have been asked"</span>,</span>
+<span id="cb48-12"><a href=""></a>    )</span>
+<span id="cb48-13"><a href=""></a>    Action: Literal[<span class="st">"conversational_response"</span>, <span class="st">"query_generator"</span>, <span class="st">"query_checker"</span>] <span class="op">=</span> (</span>
+<span id="cb48-14"><a href=""></a>        Field(..., description<span class="op">=</span><span class="st">"The action to take"</span>)</span>
+<span id="cb48-15"><a href=""></a>    )</span>
+<span id="cb48-16"><a href=""></a>    Action_Input: <span class="bu">str</span> <span class="op">=</span> Field(..., description<span class="op">=</span><span class="st">"The arguments of the Action."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-1" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="3bc045f5-884e-4f9e-b219-7ce3902bfa9f" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.797153Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.796764Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.813594Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.812454Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.797115Z&quot;}" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="kw">class</span> Final_Answer(BaseModel):</span>
-<span id="cb51-2"><a href=""></a>    Scratchpad: <span class="bu">str</span> <span class="op">=</span> Field(</span>
-<span id="cb51-3"><a href=""></a>        ...,</span>
-<span id="cb51-4"><a href=""></a>        description<span class="op">=</span><span class="st">"Information from the Observation useful to answer the question"</span>,</span>
-<span id="cb51-5"><a href=""></a>    )</span>
-<span id="cb51-6"><a href=""></a>    Final_Answer: <span class="bu">str</span> <span class="op">=</span> Field(</span>
-<span id="cb51-7"><a href=""></a>        ..., description<span class="op">=</span><span class="st">"Answer to the question grounded on the Observation"</span></span>
-<span id="cb51-8"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href=""></a><span class="kw">class</span> Final_Answer(BaseModel):</span>
+<span id="cb49-2"><a href=""></a>    Scratchpad: <span class="bu">str</span> <span class="op">=</span> Field(</span>
+<span id="cb49-3"><a href=""></a>        ...,</span>
+<span id="cb49-4"><a href=""></a>        description<span class="op">=</span><span class="st">"Information from the Observation useful to answer the question"</span>,</span>
+<span id="cb49-5"><a href=""></a>    )</span>
+<span id="cb49-6"><a href=""></a>    Final_Answer: <span class="bu">str</span> <span class="op">=</span> Field(</span>
+<span id="cb49-7"><a href=""></a>        ..., description<span class="op">=</span><span class="st">"Answer to the question grounded on the Observation"</span></span>
+<span id="cb49-8"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-2" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="9e26ca92-b4dc-4fea-997c-3c93fc283be4" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.815061Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.814677Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.827391Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.826240Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.815023Z&quot;}" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a><span class="kw">class</span> Decision(BaseModel):</span>
-<span id="cb52-2"><a href=""></a>    Decision: Reason_and_Act <span class="op">|</span> Final_Answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a><span class="kw">class</span> Decision(BaseModel):</span>
+<span id="cb50-2"><a href=""></a>    Decision: Reason_and_Act <span class="op">|</span> Final_Answer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-3" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="c26d9b60-dd92-47be-a36f-0593a71c2822" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.828859Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.828468Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.843075Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.842132Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.828821Z&quot;}" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="im">from</span> outlines.fsm.json_schema <span class="im">import</span> convert_json_schema_to_str</span>
-<span id="cb53-2"><a href=""></a><span class="im">from</span> outlines.fsm.json_schema <span class="im">import</span> build_regex_from_schema</span>
-<span id="cb53-3"><a href=""></a></span>
-<span id="cb53-4"><a href=""></a>schema_str <span class="op">=</span> convert_json_schema_to_str(json_schema<span class="op">=</span>Decision.schema_json())</span>
-<span id="cb53-5"><a href=""></a>regex_str <span class="op">=</span> build_regex_from_schema(schema_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a><span class="im">from</span> outlines.fsm.json_schema <span class="im">import</span> convert_json_schema_to_str</span>
+<span id="cb51-2"><a href=""></a><span class="im">from</span> outlines.fsm.json_schema <span class="im">import</span> build_regex_from_schema</span>
+<span id="cb51-3"><a href=""></a></span>
+<span id="cb51-4"><a href=""></a>schema_str <span class="op">=</span> convert_json_schema_to_str(json_schema<span class="op">=</span>Decision.schema_json())</span>
+<span id="cb51-5"><a href=""></a>regex_str <span class="op">=</span> build_regex_from_schema(schema_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-4" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="707a820d-2bcb-48de-953c-7e356a0793d9" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.844563Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.844174Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.856415Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.855469Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.844526Z&quot;}" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a><span class="kw">def</span> generate_hermes_prompt(question, schema<span class="op">=</span><span class="st">""</span>):</span>
-<span id="cb54-2"><a href=""></a>    <span class="cf">return</span> (</span>
-<span id="cb54-3"><a href=""></a>        <span class="st">"&lt;|im_start|&gt;system</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-4"><a href=""></a>        <span class="st">"You are a world class AI model who answers questions in JSON with correct Pydantic schema."</span></span>
-<span id="cb54-5"><a href=""></a>        <span class="ss">f"</span><span class="ch">\n</span><span class="ss">Here's the JSON schema you must adhere to:</span><span class="ch">\n</span><span class="ss">&lt;schema&gt;</span><span class="ch">\n</span><span class="sc">{</span>schema<span class="sc">}</span><span class="ch">\n</span><span class="ss">&lt;/schema&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
-<span id="cb54-6"><a href=""></a>        <span class="st">"You run in a loop of Scratchpad, Thought, Action, Action Input, PAUSE, Observation."</span></span>
-<span id="cb54-7"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">At the end of the loop you output a Final Answer. "</span></span>
-<span id="cb54-8"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Scratchpad to store the information from the observation useful to answer the question"</span></span>
-<span id="cb54-9"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Thought to describe your thoughts about the question you have been asked "</span></span>
-<span id="cb54-10"><a href=""></a>        <span class="st">"and reflect carefully about the Observation if it exists. "</span></span>
-<span id="cb54-11"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Action to run one of the actions available to you. "</span></span>
-<span id="cb54-12"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Action Input to input the arguments of the selected action - then return PAUSE. "</span></span>
-<span id="cb54-13"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Observation will be the result of running those actions. "</span></span>
-<span id="cb54-14"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">Your available actions are:</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-15"><a href=""></a>        <span class="st">"query_generator:</span><span class="ch">\n</span><span class="st">"</span> </span>
-<span id="cb54-16"><a href=""></a>        <span class="st">"e.g. query_generator: Who is Marie Curie related to?</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-17"><a href=""></a>        <span class="st">"Returns a detailed and correct Kùzu Cypher query</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-18"><a href=""></a>        <span class="st">"query_checker:</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-19"><a href=""></a>        <span class="st">"e.g. query_checker: MATCH (a:ALBUM {name: 'The Black Album'})&lt;-[:IN_ALBUM]-(s:SONG) RETURN COUNT(s)</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-20"><a href=""></a>        <span class="st">"Returns a detailed and correct Kùzu Cypher query after double checking the query for common mistakes</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-21"><a href=""></a>        <span class="st">"conversational_reponse:"</span></span>
-<span id="cb54-22"><a href=""></a>        <span class="st">"e.g. conversational_response: Hi!</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-23"><a href=""></a>        <span class="st">"Returns a conversational response to the user</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-24"><a href=""></a>        <span class="st">"DO NOT TRY TO GUESS THE ANSWER. Begin! &lt;|im_end|&gt;"</span></span>
-<span id="cb54-25"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;user</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> question <span class="op">+</span> <span class="st">"&lt;|im_end|&gt;"</span></span>
-<span id="cb54-26"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;assistant</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb54-27"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href=""></a><span class="kw">def</span> generate_hermes_prompt(question, schema<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb52-2"><a href=""></a>    <span class="cf">return</span> (</span>
+<span id="cb52-3"><a href=""></a>        <span class="st">"&lt;|im_start|&gt;system</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-4"><a href=""></a>        <span class="st">"You are a world class AI model who answers questions in JSON with correct Pydantic schema."</span></span>
+<span id="cb52-5"><a href=""></a>        <span class="ss">f"</span><span class="ch">\n</span><span class="ss">Here's the JSON schema you must adhere to:</span><span class="ch">\n</span><span class="ss">&lt;schema&gt;</span><span class="ch">\n</span><span class="sc">{</span>schema<span class="sc">}</span><span class="ch">\n</span><span class="ss">&lt;/schema&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb52-6"><a href=""></a>        <span class="st">"You run in a loop of Scratchpad, Thought, Action, Action Input, PAUSE, Observation."</span></span>
+<span id="cb52-7"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">At the end of the loop you output a Final Answer. "</span></span>
+<span id="cb52-8"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Scratchpad to store the information from the observation useful to answer the question"</span></span>
+<span id="cb52-9"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Thought to describe your thoughts about the question you have been asked "</span></span>
+<span id="cb52-10"><a href=""></a>        <span class="st">"and reflect carefully about the Observation if it exists. "</span></span>
+<span id="cb52-11"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Action to run one of the actions available to you. "</span></span>
+<span id="cb52-12"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Use Action Input to input the arguments of the selected action - then return PAUSE. "</span></span>
+<span id="cb52-13"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">- Observation will be the result of running those actions. "</span></span>
+<span id="cb52-14"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">Your available actions are:</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-15"><a href=""></a>        <span class="st">"query_generator:</span><span class="ch">\n</span><span class="st">"</span> </span>
+<span id="cb52-16"><a href=""></a>        <span class="st">"e.g. query_generator: Who is Marie Curie related to?</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-17"><a href=""></a>        <span class="st">"Returns a detailed and correct Kùzu Cypher query</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-18"><a href=""></a>        <span class="st">"query_checker:</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-19"><a href=""></a>        <span class="st">"e.g. query_checker: MATCH (a:ALBUM {name: 'The Black Album'})&lt;-[:IN_ALBUM]-(s:SONG) RETURN COUNT(s)</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-20"><a href=""></a>        <span class="st">"Returns a detailed and correct Kùzu Cypher query after double checking the query for common mistakes</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-21"><a href=""></a>        <span class="st">"conversational_reponse:"</span></span>
+<span id="cb52-22"><a href=""></a>        <span class="st">"e.g. conversational_response: Hi!</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-23"><a href=""></a>        <span class="st">"Returns a conversational response to the user</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-24"><a href=""></a>        <span class="st">"DO NOT TRY TO GUESS THE ANSWER. Begin! &lt;|im_end|&gt;"</span></span>
+<span id="cb52-25"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;user</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> question <span class="op">+</span> <span class="st">"&lt;|im_end|&gt;"</span></span>
+<span id="cb52-26"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;assistant</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb52-27"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-5" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="0c42adda-f533-42f9-99a1-52210ff13bc2" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.857901Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.857494Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.873331Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.872349Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.857863Z&quot;}" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a><span class="im">from</span> outlines <span class="im">import</span> generate, models</span>
-<span id="cb55-2"><a href=""></a>model <span class="op">=</span> models.LlamaCpp(llm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a><span class="im">from</span> outlines <span class="im">import</span> generate, models</span>
+<span id="cb53-2"><a href=""></a>model <span class="op">=</span> models.LlamaCpp(llm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-6" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="7f8ffd64-4697-49f7-a0d7-f0968fc7632d" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.874823Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.874436Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.886298Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.885077Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.874785Z&quot;}" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a><span class="kw">class</span> ChatBot:</span>
-<span id="cb56-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prompt<span class="op">=</span><span class="st">""</span>):</span>
-<span id="cb56-3"><a href=""></a>        <span class="va">self</span>.prompt <span class="op">=</span> prompt</span>
-<span id="cb56-4"><a href=""></a></span>
-<span id="cb56-5"><a href=""></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, user_prompt):</span>
-<span id="cb56-6"><a href=""></a>        <span class="va">self</span>.prompt <span class="op">+=</span> user_prompt</span>
-<span id="cb56-7"><a href=""></a>        result <span class="op">=</span> <span class="va">self</span>.execute()</span>
-<span id="cb56-8"><a href=""></a>        <span class="cf">return</span> result</span>
-<span id="cb56-9"><a href=""></a>        </span>
-<span id="cb56-10"><a href=""></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
-<span id="cb56-11"><a href=""></a>        generator <span class="op">=</span> generate.regex(model, regex_str)</span>
-<span id="cb56-12"><a href=""></a>        result <span class="op">=</span> generator(<span class="va">self</span>.prompt, max_tokens<span class="op">=</span><span class="dv">1024</span>, temperature<span class="op">=</span><span class="dv">0</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb56-13"><a href=""></a>        <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href=""></a><span class="kw">class</span> ChatBot:</span>
+<span id="cb54-2"><a href=""></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prompt<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb54-3"><a href=""></a>        <span class="va">self</span>.prompt <span class="op">=</span> prompt</span>
+<span id="cb54-4"><a href=""></a></span>
+<span id="cb54-5"><a href=""></a>    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>, user_prompt):</span>
+<span id="cb54-6"><a href=""></a>        <span class="va">self</span>.prompt <span class="op">+=</span> user_prompt</span>
+<span id="cb54-7"><a href=""></a>        result <span class="op">=</span> <span class="va">self</span>.execute()</span>
+<span id="cb54-8"><a href=""></a>        <span class="cf">return</span> result</span>
+<span id="cb54-9"><a href=""></a>        </span>
+<span id="cb54-10"><a href=""></a>    <span class="kw">def</span> execute(<span class="va">self</span>):</span>
+<span id="cb54-11"><a href=""></a>        generator <span class="op">=</span> generate.regex(model, regex_str)</span>
+<span id="cb54-12"><a href=""></a>        result <span class="op">=</span> generator(<span class="va">self</span>.prompt, max_tokens<span class="op">=</span><span class="dv">1024</span>, temperature<span class="op">=</span><span class="dv">0</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb54-13"><a href=""></a>        <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-7" class="slide level3">
 <h3>ReAct Agent</h3>
 <div id="d426a6e7-11f2-4d92-ae90-d4b521d63a1a" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.887855Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.887458Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:51.907660Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:51.906416Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.887816Z&quot;}" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href=""></a><span class="im">import</span> json</span>
-<span id="cb57-2"><a href=""></a></span>
-<span id="cb57-3"><a href=""></a><span class="kw">def</span> query(question, max_turns<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb57-4"><a href=""></a>    i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb57-5"><a href=""></a>    next_prompt <span class="op">=</span> (</span>
-<span id="cb57-6"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;user</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> question <span class="op">+</span> <span class="st">"&lt;|im_end|&gt;"</span></span>
-<span id="cb57-7"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;assistant</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb57-8"><a href=""></a>    )</span>
-<span id="cb57-9"><a href=""></a>    previous_actions <span class="op">=</span> []</span>
-<span id="cb57-10"><a href=""></a>    <span class="cf">while</span> i <span class="op">&lt;</span> max_turns:</span>
-<span id="cb57-11"><a href=""></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb57-12"><a href=""></a>        prompt <span class="op">=</span> generate_hermes_prompt(question<span class="op">=</span>question, schema<span class="op">=</span>Decision.schema_json())</span>
-<span id="cb57-13"><a href=""></a>        bot <span class="op">=</span> ChatBot(prompt<span class="op">=</span>prompt)</span>
-<span id="cb57-14"><a href=""></a>        result <span class="op">=</span> bot(next_prompt)</span>
-<span id="cb57-15"><a href=""></a>        json_result <span class="op">=</span> json.loads(result)[<span class="st">'Decision'</span>]</span>
-<span id="cb57-16"><a href=""></a>        <span class="cf">if</span> <span class="st">"Final_Answer"</span> <span class="kw">not</span> <span class="kw">in</span> <span class="bu">list</span>(json_result.keys()):</span>
-<span id="cb57-17"><a href=""></a>            scratchpad <span class="op">=</span> json_result[<span class="st">'Scratchpad'</span>] <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span></span>
-<span id="cb57-18"><a href=""></a>            thought <span class="op">=</span> json_result[<span class="st">'Thought'</span>]</span>
-<span id="cb57-19"><a href=""></a>            action <span class="op">=</span> json_result[<span class="st">'Action'</span>]</span>
-<span id="cb57-20"><a href=""></a>            action_input <span class="op">=</span> json_result[<span class="st">'Action_Input'</span>]</span>
-<span id="cb57-21"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Scratchpad: </span><span class="sc">{</span>scratchpad<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-22"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Thought: </span><span class="sc">{</span>thought<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-23"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[36m  -- running </span><span class="sc">{</span>action<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">str</span>(action_input)<span class="sc">}</span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-24"><a href=""></a>            <span class="cf">if</span> action <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> <span class="bu">str</span>(action_input) <span class="kw">in</span> previous_actions:</span>
-<span id="cb57-25"><a href=""></a>                observation <span class="op">=</span> <span class="st">"You already run that action. **TRY A DIFFERENT ACTION INPUT.**"</span></span>
-<span id="cb57-26"><a href=""></a>            <span class="cf">else</span>:</span>
-<span id="cb57-27"><a href=""></a>                <span class="cf">if</span> action<span class="op">==</span><span class="st">"query_checker"</span>:</span>
-<span id="cb57-28"><a href=""></a>                    <span class="cf">try</span>:</span>
-<span id="cb57-29"><a href=""></a>                        observation <span class="op">=</span> query_checker_tool(<span class="bu">str</span>(action_input))</span>
-<span id="cb57-30"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb57-31"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb57-32"><a href=""></a>                <span class="cf">elif</span> action<span class="op">==</span><span class="st">"query_generator"</span>:</span>
-<span id="cb57-33"><a href=""></a>                    <span class="cf">try</span>:</span>
-<span id="cb57-34"><a href=""></a>                        observation <span class="op">=</span> query_generator_tool(<span class="bu">str</span>(action_input))</span>
-<span id="cb57-35"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb57-36"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb57-37"><a href=""></a>                <span class="cf">elif</span> action<span class="op">==</span><span class="st">"conversational_response"</span>:</span>
-<span id="cb57-38"><a href=""></a>                    <span class="cf">try</span>:</span>
-<span id="cb57-39"><a href=""></a>                        observation <span class="op">=</span> conversational_response(<span class="bu">str</span>(action_input))</span>
-<span id="cb57-40"><a href=""></a>                        observation <span class="op">+=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">Answer to the user."</span></span>
-<span id="cb57-41"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb57-42"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb57-43"><a href=""></a>            <span class="bu">print</span>()</span>
-<span id="cb57-44"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[33m Observation: </span><span class="sc">{</span>observation<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-45"><a href=""></a>            <span class="bu">print</span>()</span>
-<span id="cb57-46"><a href=""></a>            previous_actions.append(action <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> <span class="bu">str</span>(action_input))</span>
-<span id="cb57-47"><a href=""></a>            next_prompt <span class="op">+=</span> (</span>
-<span id="cb57-48"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Scratchpad: "</span> <span class="op">+</span> scratchpad <span class="op">+</span></span>
-<span id="cb57-49"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Thought: "</span> <span class="op">+</span> thought <span class="op">+</span></span>
-<span id="cb57-50"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Action: "</span> <span class="op">+</span> action  <span class="op">+</span></span>
-<span id="cb57-51"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Action Input: "</span> <span class="op">+</span> action_input <span class="op">+</span></span>
-<span id="cb57-52"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Observation: "</span> <span class="op">+</span> <span class="bu">str</span>(observation)</span>
-<span id="cb57-53"><a href=""></a>            )</span>
-<span id="cb57-54"><a href=""></a>        <span class="cf">else</span>:</span>
-<span id="cb57-55"><a href=""></a>            scratchpad <span class="op">=</span> json_result[<span class="st">"Scratchpad"</span>]</span>
-<span id="cb57-56"><a href=""></a>            final_answer <span class="op">=</span> json_result[<span class="st">"Final_Answer"</span>]</span>
-<span id="cb57-57"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Scratchpad: </span><span class="sc">{</span>scratchpad<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-58"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Final Answer: </span><span class="sc">{</span>final_answer<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
-<span id="cb57-59"><a href=""></a>            <span class="cf">return</span> final_answer</span>
-<span id="cb57-60"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Final Answer: I am sorry, but I am unable to answer your question. Please provide more information or a different question."</span>)</span>
-<span id="cb57-61"><a href=""></a>    <span class="cf">return</span> <span class="st">"No answer found"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a><span class="im">import</span> json</span>
+<span id="cb55-2"><a href=""></a></span>
+<span id="cb55-3"><a href=""></a><span class="kw">def</span> query(question, max_turns<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb55-4"><a href=""></a>    i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb55-5"><a href=""></a>    next_prompt <span class="op">=</span> (</span>
+<span id="cb55-6"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;user</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> question <span class="op">+</span> <span class="st">"&lt;|im_end|&gt;"</span></span>
+<span id="cb55-7"><a href=""></a>        <span class="st">"</span><span class="ch">\n</span><span class="st">&lt;|im_start|&gt;assistant</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb55-8"><a href=""></a>    )</span>
+<span id="cb55-9"><a href=""></a>    previous_actions <span class="op">=</span> []</span>
+<span id="cb55-10"><a href=""></a>    <span class="cf">while</span> i <span class="op">&lt;</span> max_turns:</span>
+<span id="cb55-11"><a href=""></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb55-12"><a href=""></a>        prompt <span class="op">=</span> generate_hermes_prompt(question<span class="op">=</span>question, schema<span class="op">=</span>Decision.schema_json())</span>
+<span id="cb55-13"><a href=""></a>        bot <span class="op">=</span> ChatBot(prompt<span class="op">=</span>prompt)</span>
+<span id="cb55-14"><a href=""></a>        result <span class="op">=</span> bot(next_prompt)</span>
+<span id="cb55-15"><a href=""></a>        json_result <span class="op">=</span> json.loads(result)[<span class="st">'Decision'</span>]</span>
+<span id="cb55-16"><a href=""></a>        <span class="cf">if</span> <span class="st">"Final_Answer"</span> <span class="kw">not</span> <span class="kw">in</span> <span class="bu">list</span>(json_result.keys()):</span>
+<span id="cb55-17"><a href=""></a>            scratchpad <span class="op">=</span> json_result[<span class="st">'Scratchpad'</span>] <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">""</span></span>
+<span id="cb55-18"><a href=""></a>            thought <span class="op">=</span> json_result[<span class="st">'Thought'</span>]</span>
+<span id="cb55-19"><a href=""></a>            action <span class="op">=</span> json_result[<span class="st">'Action'</span>]</span>
+<span id="cb55-20"><a href=""></a>            action_input <span class="op">=</span> json_result[<span class="st">'Action_Input'</span>]</span>
+<span id="cb55-21"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Scratchpad: </span><span class="sc">{</span>scratchpad<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-22"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Thought: </span><span class="sc">{</span>thought<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-23"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[36m  -- running </span><span class="sc">{</span>action<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">str</span>(action_input)<span class="sc">}</span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-24"><a href=""></a>            <span class="cf">if</span> action <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> <span class="bu">str</span>(action_input) <span class="kw">in</span> previous_actions:</span>
+<span id="cb55-25"><a href=""></a>                observation <span class="op">=</span> <span class="st">"You already run that action. **TRY A DIFFERENT ACTION INPUT.**"</span></span>
+<span id="cb55-26"><a href=""></a>            <span class="cf">else</span>:</span>
+<span id="cb55-27"><a href=""></a>                <span class="cf">if</span> action<span class="op">==</span><span class="st">"query_checker"</span>:</span>
+<span id="cb55-28"><a href=""></a>                    <span class="cf">try</span>:</span>
+<span id="cb55-29"><a href=""></a>                        observation <span class="op">=</span> query_checker_tool(<span class="bu">str</span>(action_input))</span>
+<span id="cb55-30"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb55-31"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb55-32"><a href=""></a>                <span class="cf">elif</span> action<span class="op">==</span><span class="st">"query_generator"</span>:</span>
+<span id="cb55-33"><a href=""></a>                    <span class="cf">try</span>:</span>
+<span id="cb55-34"><a href=""></a>                        observation <span class="op">=</span> query_generator_tool(<span class="bu">str</span>(action_input))</span>
+<span id="cb55-35"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb55-36"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb55-37"><a href=""></a>                <span class="cf">elif</span> action<span class="op">==</span><span class="st">"conversational_response"</span>:</span>
+<span id="cb55-38"><a href=""></a>                    <span class="cf">try</span>:</span>
+<span id="cb55-39"><a href=""></a>                        observation <span class="op">=</span> conversational_response(<span class="bu">str</span>(action_input))</span>
+<span id="cb55-40"><a href=""></a>                        observation <span class="op">+=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">Answer to the user."</span></span>
+<span id="cb55-41"><a href=""></a>                    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb55-42"><a href=""></a>                        observation <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb55-43"><a href=""></a>            <span class="bu">print</span>()</span>
+<span id="cb55-44"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[33m Observation: </span><span class="sc">{</span>observation<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-45"><a href=""></a>            <span class="bu">print</span>()</span>
+<span id="cb55-46"><a href=""></a>            previous_actions.append(action <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> <span class="bu">str</span>(action_input))</span>
+<span id="cb55-47"><a href=""></a>            next_prompt <span class="op">+=</span> (</span>
+<span id="cb55-48"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Scratchpad: "</span> <span class="op">+</span> scratchpad <span class="op">+</span></span>
+<span id="cb55-49"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Thought: "</span> <span class="op">+</span> thought <span class="op">+</span></span>
+<span id="cb55-50"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Action: "</span> <span class="op">+</span> action  <span class="op">+</span></span>
+<span id="cb55-51"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Action Input: "</span> <span class="op">+</span> action_input <span class="op">+</span></span>
+<span id="cb55-52"><a href=""></a>                <span class="st">"</span><span class="ch">\n</span><span class="st">Observation: "</span> <span class="op">+</span> <span class="bu">str</span>(observation)</span>
+<span id="cb55-53"><a href=""></a>            )</span>
+<span id="cb55-54"><a href=""></a>        <span class="cf">else</span>:</span>
+<span id="cb55-55"><a href=""></a>            scratchpad <span class="op">=</span> json_result[<span class="st">"Scratchpad"</span>]</span>
+<span id="cb55-56"><a href=""></a>            final_answer <span class="op">=</span> json_result[<span class="st">"Final_Answer"</span>]</span>
+<span id="cb55-57"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Scratchpad: </span><span class="sc">{</span>scratchpad<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-58"><a href=""></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\x1b</span><span class="ss">[34m Final Answer: </span><span class="sc">{</span>final_answer<span class="sc">}</span><span class="ss"> </span><span class="ch">\x1b</span><span class="ss">[0m"</span>)</span>
+<span id="cb55-59"><a href=""></a>            <span class="cf">return</span> final_answer</span>
+<span id="cb55-60"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Final Answer: I am sorry, but I am unable to answer your question. Please provide more information or a different question."</span>)</span>
+<span id="cb55-61"><a href=""></a>    <span class="cf">return</span> <span class="st">"No answer found"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="react-agent-8" class="slide level3">
 <h3>ReAct Agent</h3>
-<div id="808df81c-5c73-4bb7-b133-f6f9b02171c5" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:51.910000Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:51.908975Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:06:58.295421Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:06:58.294683Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:51.909932Z&quot;}" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>query(<span class="st">"Query the database to see which discovery did Pierre Curie do?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="808df81c-5c73-4bb7-b133-f6f9b02171c5" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:35:22.869636Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:35:22.869072Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:35:29.270429Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:35:29.269133Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:35:22.869588Z&quot;}" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href=""></a>query(<span class="st">"Query the database to see which discovery did Pierre Curie do?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Scratchpad:  
  Thought: To find out which discovery Pierre Curie is known for, I should query the database for information about his scientific contributions. 
@@ -1519,15 +1510,15 @@ Relationships: ['(:Person)-[:Awarded]-&gt;(:Award)', '(:Person)-[:Discovered]-&g
  Scratchpad: Pierre Curie is known for discovering piezoelectricity. 
  Final Answer: Pierre Curie discovered piezoelectricity. </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell-output cell-output-display" data-execution_count="65">
 <pre><code>'Pierre Curie discovered piezoelectricity.'</code></pre>
 </div>
 </div>
 </section>
 <section id="react-agent-9" class="slide level3">
 <h3>ReAct Agent</h3>
-<div id="5810a77c-26c8-4e84-aa2d-20c512fdf280" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:06:58.296178Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:06:58.296017Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:07:04.674005Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:07:04.672954Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:06:58.296164Z&quot;}" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href=""></a>query(<span class="st">"Query the database to see which discovery did Marie Curie do?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5810a77c-26c8-4e84-aa2d-20c512fdf280" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:36:01.774540Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:36:01.774016Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:36:08.241424Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:36:08.240241Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:36:01.774495Z&quot;}" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href=""></a>query(<span class="st">"Query the database to see which discovery did Marie Curie do?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Scratchpad:  
  Thought: To find out which discovery Marie Curie is known for, I will query the database to search for her discoveries. 
@@ -1539,15 +1530,15 @@ Relationships: ['(:Person)-[:Awarded]-&gt;(:Award)', '(:Person)-[:Discovered]-&g
  Scratchpad: Marie Curie is known for discovering Radium and Polonium. 
  Final Answer: Marie Curie discovered Radium and Polonium. </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>'Marie Curie discovered Radium and Polonium.'</code></pre>
 </div>
 </div>
 </section>
 <section id="react-agent-10" class="slide level3">
 <h3>ReAct Agent</h3>
-<div id="3cc8de62-2b40-490c-b1ae-21dd54d6d952" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-04T23:07:04.675608Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-04T23:07:04.675200Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-04T23:07:08.683934Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-04T23:07:08.683175Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-04T23:07:04.675568Z&quot;}" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href=""></a>query(<span class="st">"Tell me a joke"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3cc8de62-2b40-490c-b1ae-21dd54d6d952" class="cell" data-execution="{&quot;iopub.execute_input&quot;:&quot;2024-12-05T10:36:18.408952Z&quot;,&quot;iopub.status.busy&quot;:&quot;2024-12-05T10:36:18.408425Z&quot;,&quot;iopub.status.idle&quot;:&quot;2024-12-05T10:36:22.473586Z&quot;,&quot;shell.execute_reply&quot;:&quot;2024-12-05T10:36:22.472828Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2024-12-05T10:36:18.408906Z&quot;}" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href=""></a>query(<span class="st">"Tell me a joke"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Scratchpad:  
  Thought: To provide a joke, I will use my knowledge base to find a suitable joke that is appropriate for all ages. 
@@ -1559,7 +1550,7 @@ Answer to the user.
  Scratchpad: To provide a joke, I will use my knowledge base to find a suitable joke that is appropriate for all ages. 
  Final Answer: Why don't scientists trust atoms? Because they make up everything! </code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="67">
 <pre><code>"Why don't scientists trust atoms? Because they make up everything!"</code></pre>
 </div>
 </div>
@@ -1577,11 +1568,15 @@ Answer to the user.
 <li>Structured Outputs + Structured Generation help us create KG-based Agents that can query graph databases as well as calling other tools</li>
 </ul>
 </section>
-<section id="references" class="slide level3">
+<section id="references" class="slide level3" data-visibility="uncounted">
 <h3>References</h3>
 <ul>
 <li>Kùzu (graph DB) + Llama.cpp (inference) + Outlines (structured outputs) + LangChain (framework) + Solara (visualization)</li>
 </ul>
+</section>
+<section id="how-was-my-presentation" class="slide level3" data-visibility="uncounted">
+<h3>How was my presentation?</h3>
+<p>Please, leave me your anonymous feedback at <a href="https://www.admonymous.co/alonsosilva">https://www.admonymous.co/alonsosilva</a></p>
 
 </section><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
