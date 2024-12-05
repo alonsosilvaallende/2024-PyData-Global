@@ -43,6 +43,11 @@ from IPython.display import IFrame
     - Mastodon: [https://sigmoid.social/@alonsosilva](https://sigmoid.social/@alonsosilva)
     - Linkedin: [https://www.linkedin.com/in/alonsosilvaallende/](https://www.linkedin.com/in/alonsosilvaallende/)
 
+###
+
+- Slides: [alonsosilvaallende.github.io/2024-PyData-Global/](https://alonsosilvaallende.github.io/2024-PyData-Global/)
+- This presentation: [https://github.com/alonsosilvaallende/2024-PyData-Global/blob/main/PyData-Global.ipynb](https://github.com/alonsosilvaallende/2024-PyData-Global/blob/main/PyData-Global.ipynb)
+
 # Introduction
 
 ##
@@ -259,7 +264,7 @@ outlines_logits_processor = outlines.processors.JSONLogitsProcessor(
 
 ```{python}
 #| echo: true
-#| code-line-numbers: 1-18|13-15
+#| code-line-numbers: '1-18|1|1,8-9|1,8-9,13-15'
 user_input = "You are great"
 
 output = llm.create_chat_completion(
@@ -943,9 +948,10 @@ class Decision(BaseModel):
 
 ```{python}
 #| echo: true
-from outlines.fsm.json_schema import convert_json_schema_to_str
-from outlines.fsm.json_schema import build_regex_from_schema
+from outlines import generate, models
+from outlines.fsm.json_schema import build_regex_from_schema, convert_json_schema_to_str
 
+model = models.LlamaCpp(llm)
 schema_str = convert_json_schema_to_str(json_schema=Decision.schema_json())
 regex_str = build_regex_from_schema(schema_str)
 ```
@@ -954,6 +960,7 @@ regex_str = build_regex_from_schema(schema_str)
 
 ```{python}
 #| echo: true
+#| code-line-numbers: 1-27|6-7
 def generate_hermes_prompt(question, schema=""):
     return (
         "<|im_start|>system\n"
@@ -981,14 +988,6 @@ def generate_hermes_prompt(question, schema=""):
         "\n<|im_start|>user\n" + question + "<|im_end|>"
         "\n<|im_start|>assistant\n"
     )
-```
-
-### ReAct Agent
-
-```{python}
-#| echo: true
-from outlines import generate, models
-model = models.LlamaCpp(llm)
 ```
 
 ### ReAct Agent
@@ -1107,8 +1106,12 @@ query("Tell me a joke")
 
 ### References {visibility="uncounted"}
 
+- [Coalescence](https://blog.dottxt.co/coalescence.html) by [Will Kurt](https://twitter.com/willkurt)
+- [Fast, High-Fidelity LLM Decoding with Regex Constraints](https://github.com/vivien000/regex-constrained-decoding) by [Vivien Tran-Thien](https://github.com/vivien000)
+- [A simple Python implementation of the ReAct pattern for LLMs](https://til.simonwillison.net/llms/python-react-pattern) by [Simon Willison](https://simonwillison.net/)
 - Kùzu (graph DB) + Llama.cpp (inference) + Outlines (structured outputs) + LangChain (framework) + Solara (visualization)
 
 ### How was my presentation? {visibility="uncounted"}
 
 Please, leave me your anonymous feedback at [https://www.admonymous.co/alonsosilva](https://www.admonymous.co/alonsosilva)
+
