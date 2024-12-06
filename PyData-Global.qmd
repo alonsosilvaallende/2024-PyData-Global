@@ -241,8 +241,7 @@ For example, for sentiment analysis:
 
 ```{python}
 #| echo: true
-#| source-line-numbers: '3'
-#| class-source: numberLines
+#| code-line-numbers: 1-13|12
 import outlines
 
 import transformers
