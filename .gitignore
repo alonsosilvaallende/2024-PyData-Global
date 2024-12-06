@@ -4,3 +4,4 @@ PyData-Global_files/
 *.ipynb
 demo_db/
 test_kuzudb/
+_extensions/
