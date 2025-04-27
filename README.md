@@ -2,7 +2,9 @@
 
 Information about this presentation can be found [here](https://global2024.pydata.org/cfp/talk/8QNSYP/).
 
-The **video recording** of the presentation: *coming soon*
+The **video recording** of the presentation can be found here:
+
+[![Image of the title slide](http://img.youtube.com/vi/94yuQKoDKkE/0.jpg)](https://www.youtube.com/watch?v=94yuQKoDKkE).
 
 The **slides** of the presentation can be found [here](https://alonsosilvaallende.github.io/2024-PyData-Global/).
 
